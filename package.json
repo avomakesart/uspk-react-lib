@@ -4,10 +4,7 @@
   "description": "Uspk react component library",
   "main": "build/index.js",
   "module": "build/index.js",
-  "author": {
-    "name": "Alvaro Castillo",
-    "url": "https://alvarocastle.com"
-  },
+  "author": "Alvaro Castillo (https://alvarocastle.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/avomakesart/uspk-react-lib/issues"
@@ -66,5 +63,14 @@
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.3.1"
-  }
+  },
+  "homepage": "https://github.com/avomakesart/uspk-react-lib#readme",
+  "keywords": [
+    "react",
+    "lib",
+    "components",
+    "reusable",
+    "react",
+    "typescript"
+  ]
 }
