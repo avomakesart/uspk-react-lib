@@ -1,9 +1,12 @@
 {
   "name": "@uspk/react-lib",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Uspk react component library",
   "main": "index.js",
-  "author": "Alvaro Castillo",
+  "author": {
+    "name": "Alvaro Castillo",
+    "url": "https://alvarocastle.com"
+  },
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -11,6 +14,10 @@
     "build": "webpack --config webpack.prod.config.ts",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avomakesart/uspk-react-lib.git"
   },
   "dependencies": {
     "react": "^17.0.2",
