@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useEffect, useState} from 'react'
 import {CheckIcon} from './assets/icons/CheckIcon'
 import './custom-select.css'

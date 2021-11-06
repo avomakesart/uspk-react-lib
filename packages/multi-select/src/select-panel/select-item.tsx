@@ -9,7 +9,8 @@ import { Option } from "../../lib/interfaces";
 import DefaultItemRenderer from "./default-item";
 
 interface ISelectItemProps {
-  itemRenderer;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  itemRenderer: any;
   option: Option;
   checked?: boolean;
   tabIndex?: number;
@@ -27,6 +28,7 @@ const SelectItem = ({
   onSelectionChanged,
   onClick,
 }: ISelectItemProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const itemRef: any = useRef();
 
   const onOptionCheck = (e) => {

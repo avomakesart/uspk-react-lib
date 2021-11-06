@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from "react";
 
 /**
@@ -5,7 +6,7 @@ import { useEffect, useRef } from "react";
  * @param fn executable function on dependency updates
  * @param inputs dependency array
  */
-export function useDidUpdateEffect(fn, inputs) {
+export function useDidUpdateEffect(fn: any, inputs: any) {
   const didMountRef = useRef(false);
 
   useEffect(() => {

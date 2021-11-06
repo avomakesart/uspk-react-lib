@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * A generic dropdown component.  It takes the children of the component
  * and hosts it in the component.  When the component is selected, it

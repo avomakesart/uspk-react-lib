@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * This component represents the entire panel which gets dropped down when the
  * user selects the component.  It encapsulates the search filter, the

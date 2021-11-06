@@ -1,7 +1,6 @@
 export * from './buttons/src'
 export * from './checkbox/src'
 export * from './custom-select/src'
-export * from './dropdown/src'
 export * from './multi-select/src'
 export * from './select/src'
 export * from './text-field/src'

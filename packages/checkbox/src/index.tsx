@@ -31,7 +31,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
           type="checkbox"
           checked={checked}
           onChange={onCheck}
-          className="checkbox-input"
+          className={checkboxClassname}
         />
       </div>
       <div className="checkbox-label-container">

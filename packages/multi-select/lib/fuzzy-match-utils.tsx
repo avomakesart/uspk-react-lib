@@ -71,6 +71,7 @@ export function filterOptions(
 export function typeaheadSimilarity(a: string, b: string): number {
   const aLength = a.length;
   const bLength = b.length;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const table: any[] = [];
 
   if (!aLength || !bLength) {

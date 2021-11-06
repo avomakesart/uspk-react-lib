@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * This component represents an unadorned list of SelectItem (s).
  */
@@ -22,6 +23,7 @@ const SelectList = ({ options, onClick, skipIndex }: ISelectListProps) => {
     onChange(
       checked
         ? [...value, option]
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         : value.filter((o: any) => o.value !== option.value)
     );
   };
