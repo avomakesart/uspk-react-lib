@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ReactNode } from "react";
 
 export interface Option {
-  value;
+  value: any;
   label: string;
   key?: string;
   disabled?: boolean;
@@ -10,10 +11,10 @@ export interface Option {
 export interface ISelectProps {
   options: Option[];
   value: Option[];
-  onChange?;
+  onChange?: any;
   valueRenderer?: (selected: Option[], options: Option[]) => ReactNode;
-  ItemRenderer?;
-  ArrowRenderer?: ({ expanded }) => JSX.Element;
+  ItemRenderer?: any;
+  ArrowRenderer?: ({ expanded }: any) => JSX.Element;
   isLoading?: boolean;
   disabled?: boolean;
   disableSearch?: boolean;
@@ -26,12 +27,12 @@ export interface ISelectProps {
   overrideStrings?: { [key: string]: string };
   labelledBy: string;
   className?: string;
-  onMenuToggle?;
+  onMenuToggle?: any;
   ClearIcon?: ReactNode;
   debounceDuration?: number;
   ClearSelectedIcon?: ReactNode;
   defaultIsOpen?: boolean;
   isOpen?: boolean;
   isCreatable?: boolean;
-  onCreateOption?;
+  onCreateOption?: any;
 }

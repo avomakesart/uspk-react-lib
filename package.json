@@ -2,10 +2,13 @@
   "name": "@uspk/react-lib",
   "version": "1.1.0",
   "description": "Uspk react component library",
-  "main": "build/index.js",
-  "module": "build/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "author": "Alvaro Castillo (https://alvarocastle.com)",
   "license": "MIT",
+  "files": [
+    "lib"
+  ],
   "bugs": {
     "url": "https://github.com/avomakesart/uspk-react-lib/issues"
   },

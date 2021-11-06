@@ -50,8 +50,9 @@ const SelectPanel = () => {
   const [filteredOptions, setFilteredOptions] = useState(options);
   const [searchTextForFilter, setSearchTextForFilter] = useState("");
   const [focusIndex, setFocusIndex] = useState(0);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSearch = useCallback(
-    debounce((query) => setSearchTextForFilter(query), debounceDuration),
+    debounce((query: any) => setSearchTextForFilter(query), debounceDuration),
     []
   );
 
@@ -69,7 +70,7 @@ const SelectPanel = () => {
     value: "",
   };
 
-  const selectAllValues = (checked) => {
+  const selectAllValues = (checked: any) => {
     const filteredValues = filteredOptions
       .filter((o) => !o.disabled)
       .map((o) => o.value);
@@ -89,7 +90,7 @@ const SelectPanel = () => {
     onChange(newOptions);
   };
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: any) => {
     debouncedSearch(e.target.value);
     setSearchText(e.target.value);
     setFocusIndex(FocusType.SEARCH);
@@ -104,7 +105,7 @@ const SelectPanel = () => {
   const handleItemClicked = (index: number) => setFocusIndex(index);
 
   // Arrow Key Navigation
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: any) => {
     switch (e.code) {
       case KEY.ARROW_UP:
         updateFocus(-1);
@@ -171,6 +172,7 @@ const SelectPanel = () => {
 
   useEffect(() => {
     getFilteredOptions().then(setFilteredOptions);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTextForFilter, options]);
 
   return (
@@ -216,7 +218,7 @@ const SelectPanel = () => {
           <SelectList
             skipIndex={skipIndex}
             options={filteredOptions}
-            onClick={(_e, index) => handleItemClicked(index)}
+            onClick={(_e: any, index: any) => handleItemClicked(index)}
           />
         ) : isCreatable ? (
           <li onClick={handleOnCreateOption} className="select-item creatable">

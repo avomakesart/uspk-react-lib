@@ -9,7 +9,7 @@ const config: Configuration = {
   mode: 'production',
   entry: path.join(__dirname, 'packages', 'index.ts'),
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'lib'),
     filename: '[name].[contenthash].js',
     publicPath: '',
   },

@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
-export const Arrow = ({ expanded }) => (
+export const Arrow = ({ expanded }: any) => (
   <svg
     width="24"
     height="24"

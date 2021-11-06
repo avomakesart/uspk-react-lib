@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /**
  * This component represents an individual item in the multi-select drop-down
  */
@@ -16,7 +17,7 @@ interface ISelectItemProps {
   tabIndex?: number;
   disabled?: boolean;
   onSelectionChanged: (checked: boolean) => void;
-  onClick;
+  onClick: any;
 }
 
 const SelectItem = ({
@@ -31,7 +32,7 @@ const SelectItem = ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const itemRef: any = useRef();
 
-  const onOptionCheck = (e) => {
+  const onOptionCheck = (e: any) => {
     toggleChecked();
     e.preventDefault();
   };
@@ -42,7 +43,7 @@ const SelectItem = ({
     }
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     toggleChecked();
     onClick(e);
   };

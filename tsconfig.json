@@ -14,11 +14,20 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
-    "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "outDir": "lib",
+    "declaration": true,
+    "sourceMap": true,
+    "declarationMap": true,
   },
   "include": [
-    "src",
-    "mdx.d.ts"
-, "packages/buttons/docs"  ]
+    "mdx.d.ts",
+    "packages"
+  ],
+  "exclude": [
+    "**/*.stories.tsx",
+    "packages/**/*.stories.tsx",
+    "**/*.stories.mdx",
+    "packages/**/*.stories.mdx",
+  ]
 }

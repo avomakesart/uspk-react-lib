@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
 import { Option } from "../../lib/interfaces";
@@ -6,7 +7,7 @@ interface IDefaultItemRendererProps {
   checked: boolean;
   option: Option;
   disabled?: boolean;
-  onClick;
+  onClick: any;
 }
 
 const DefaultItemRenderer = ({

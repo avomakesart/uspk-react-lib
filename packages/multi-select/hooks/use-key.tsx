@@ -46,7 +46,7 @@ function useKey(
   const options = Object.assign({}, defaultOptions, opts);
   const { when, eventTypes } = options;
   const callbackRef = useRef<(e: KeyboardEvent) => any>(callback);
-  const { target } = options;
+  const { target } = options as any;
 
   useEffect(() => {
     callbackRef.current = callback;
@@ -63,7 +63,7 @@ function useKey(
 
   useEffect((): any => {
     if (when && typeof window !== "undefined") {
-      const targetNode = target ? target["current"] : window;
+      const targetNode = target ? target["current"] : window
       eventTypes.forEach((eventType) => {
         targetNode && targetNode.addEventListener(eventType, handle);
       });
@@ -73,6 +73,7 @@ function useKey(
         });
       };
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [when, eventTypes, keyList, target, callback]);
 }
 

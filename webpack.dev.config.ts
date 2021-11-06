@@ -40,7 +40,7 @@ const config: Configuration = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   devServer: {
-    static: path.join(__dirname, 'build'),
+    static: path.join(__dirname, 'lib'),
     historyApiFallback: true,
     port: 4000,
     open: true,

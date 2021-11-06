@@ -1,54 +1,55 @@
-import React, { useEffect, useMemo, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useMemo, useState } from 'react'
 
-import { injectStyles } from "../lib/inject-style";
-import { ISelectProps, Option } from "../lib/interfaces";
+import { injectStyles } from '../lib/inject-style'
+import { ISelectProps, Option } from '../lib/interfaces'
 
 const defaultStrings = {
-  allItemsAreSelected: "All items are selected.",
-  clearSearch: "Clear Search",
-  clearSelected: "Clear Selected",
-  noOptions: "No options",
-  search: "Search",
-  selectAll: "Select All",
-  selectAllFiltered: "Select All (Filtered)",
-  selectSomeItems: "Select...",
-  create: "Create",
-};
+  allItemsAreSelected: 'All items are selected.',
+  clearSearch: 'Clear Search',
+  clearSelected: 'Clear Selected',
+  noOptions: 'No options',
+  search: 'Search',
+  selectAll: 'Select All',
+  selectAllFiltered: 'Select All (Filtered)',
+  selectSomeItems: 'Select...',
+  create: 'Create',
+} as any
 
 const defaultProps: Partial<ISelectProps> = {
   value: [],
   hasSelectAll: true,
-  className: "multi-select",
+  className: 'multi-select',
   debounceDuration: 200,
   options: [] as Option[],
-};
+}
 
 interface MultiSelectContextProps extends ISelectProps {
-  t: (key: string) => string;
-  setOptions?;
+  t: (key: string) => string
+  setOptions?: any
 }
 
 interface MultiSelectProviderProps {
-  props: ISelectProps;
-  children;
+  props: ISelectProps
+  children: any
 }
 
 const MultiSelectContext = React.createContext<MultiSelectContextProps>(
-  {} as MultiSelectContextProps
-);
+  {} as MultiSelectContextProps,
+)
 
 export const MultiSelectProvider = ({
   props,
   children,
 }: MultiSelectProviderProps) => {
-  const [options, setOptions] = useState(props.options);
-  const t = (key) => props.overrideStrings?.[key] || defaultStrings[key];
+  const [options, setOptions] = useState(props.options)
+  const t = (key: any) => props.overrideStrings?.[key] || defaultStrings[key]
 
-  useMemo(() => injectStyles(), []);
+  useMemo(() => injectStyles(), [])
 
   useEffect(() => {
-    setOptions(props.options);
-  }, [props.options]);
+    setOptions(props.options)
+  }, [props.options])
 
   return (
     <MultiSelectContext.Provider
@@ -56,7 +57,7 @@ export const MultiSelectProvider = ({
     >
       {children}
     </MultiSelectContext.Provider>
-  );
-};
+  )
+}
 
-export const useMultiSelect = () => React.useContext(MultiSelectContext);
+export const useMultiSelect = () => React.useContext(MultiSelectContext)

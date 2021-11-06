@@ -10,7 +10,7 @@ import SelectItem from "./select-item";
 
 interface ISelectListProps {
   options: Option[];
-  onClick;
+  onClick: any;
   skipIndex: number;
 }
 
@@ -40,7 +40,7 @@ const SelectList = ({ options, onClick, skipIndex }: ISelectListProps) => {
               option={o}
               onSelectionChanged={(c) => handleSelectionChanged(o, c)}
               checked={!!value.find((s) => s.value === o.value)}
-              onClick={(e) => onClick(e, tabIndex)}
+              onClick={(e: any) => onClick(e, tabIndex)}
               itemRenderer={ItemRenderer}
               disabled={o.disabled || disabled}
             />

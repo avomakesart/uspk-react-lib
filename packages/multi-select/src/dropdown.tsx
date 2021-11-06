@@ -48,9 +48,10 @@ const Dropdown = () => {
       setIsInternalExpand(false)
       setExpanded(isOpen)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen])
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e:any) => {
     // allows space and enter when focused on input/button
     if (
       ['text', 'button'].includes(e.target.type) &&
@@ -80,7 +81,7 @@ const Dropdown = () => {
 
   const handleFocus = () => !hasFocus && setHasFocus(true)
 
-  const handleBlur = e => {
+  const handleBlur = (e: any) => {
     if (!e.currentTarget.contains(e.relatedTarget) && isInternalExpand) {
       setHasFocus(false)
       setExpanded(false)
@@ -95,7 +96,7 @@ const Dropdown = () => {
     isInternalExpand && setExpanded(isLoading || disabled ? false : !expanded)
   }
 
-  const handleClearSelected = e => {
+  const handleClearSelected = (e: any) => {
     e.stopPropagation()
     onChange([])
     isInternalExpand && setExpanded(false)
