@@ -1,6 +1,6 @@
 {
   "name": "@uspk/react-lib",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Uspk react component library",
   "main": "build/index.js",
   "module": "build/index.js",
