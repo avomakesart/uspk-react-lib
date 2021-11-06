@@ -1,6 +1,6 @@
 {
   "name": "@uspk/react-lib",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Uspk react component library",
   "main": "build/index.js",
   "module": "build/index.js",
@@ -9,7 +9,9 @@
     "url": "https://alvarocastle.com"
   },
   "license": "MIT",
-  "private": true,
+  "bugs": {
+    "url": "https://github.com/avomakesart/uspk-react-lib/issues"
+  },
   "scripts": {
     "start": "webpack serve --config webpack.dev.config.ts",
     "build": "webpack --config webpack.prod.config.ts",
@@ -47,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
     "babel-loader": "^8.2.3",
+    "chromatic": "^6.0.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.4.0",
     "eslint": "^8.1.0",
