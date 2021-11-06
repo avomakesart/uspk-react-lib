@@ -1,0 +1,138 @@
+import {Canvas, Description, Meta, Story} from '@storybook/addon-docs'
+import README from '../README.md'
+
+<Description markdown={README}/>
+
+<br/>
+<br/>
+
+## Default
+
+<Canvas withSource="open">
+  <Story id="components-button--default" />
+</Canvas>
+
+## Primary
+
+<Canvas withSource="open">
+  <Story id="components-button--primary" />
+</Canvas>
+
+## Secondary
+
+<Canvas withSource="open">
+  <Story id="components-button--secondary" />
+</Canvas>
+
+## Disabled
+
+<Canvas withSource="open">
+  <Story id="components-button--disabled" />
+</Canvas>
+
+## Custom background
+
+<Canvas withSource="open">
+  <Story id="components-button--custom-background" />
+</Canvas>
+
+
+## Props
+
+### Footer
+```jsx
+**children** `React.Element(jsx)`
+
+Renders any other component, or any content based on jsx.
+
+### FooterWrapper
+
+**children** `React.Element(jsx)`
+
+Renders any other component, or any content based on jsx.
+
+**bgColor** `string`
+
+Custom background color for the component.
+
+**color** `string`
+
+Custom text color for the component.
+
+### FooterRow
+
+**children** `React.Element(jsx)`
+
+Renders any other component, or any content based on jsx.
+
+**cols** `number`
+
+Number of columns to use based on a grid system.
+
+**mobileCols** `number`
+
+Number of columns to use on the mobile version, based on a grid system.
+
+**rowAlign** `string`
+
+Alignment of the row, we have two options:
+
+`left` - this will align the whole row to the left.
+`right` - this will align the whole row to the right.
+
+**alignItems** `string`
+
+General Alignment of the row: `normal`, `stretch`, `center`, `start`, `end`, `flex-start`, `flex-en`, `self-start`, `self-end`, `baseline`, `first baseline`, `last baseline`, `safe center`, `unsafe center`, `inherit`, `initial`, `unset`
+
+Reference: <https://developer.mozilla.org/es/docs/Web/CSS/align-items>
+
+### FooterColumn
+
+**children** `React.Element(jsx)`
+
+Renders any other component, or any content based on jsx.
+
+**justify** `string`
+
+Justification of the column, based on flexbox system.
+
+Reference: <https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self>
+
+**direction** `string`
+
+Desired direction for the column, example: `column` or `row`
+
+### FooterLink
+
+**key** `string | number`
+
+Special attribute to identify components and elements.
+
+**href** `string*`
+
+Required Url to navigate in the app.
+
+**children** `React.Element(jsx)`
+
+Renders any other component, or any content based on jsx.
+
+**className** `string`
+
+Extra className for the component.
+
+**textColor** `string`
+
+Custom text color for the component.
+
+**fontWeight** `string`
+
+Custom font weight for the component.
+
+**type** `string`
+
+If this prop is specified as `type="button"`, the link will be a button and you will be able to use onClick events.
+
+**onClick** `func`
+
+Event to handle clicks, just if the prop `type="button"` has been specified.
+```

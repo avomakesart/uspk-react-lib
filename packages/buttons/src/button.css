@@ -1,0 +1,89 @@
+.button {
+  border-color: transparent;
+  border-width: 2px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.375;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  --uspk-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: var(--uspk-ring-offset-shadow, 0 0 #0000), var(--uspk-ring-shadow, 0 0 #0000), var(--uspk-shadow);
+  box-shadow: var(--uspk-ring-offset-shadow, 0 0 #0000), var(--uspk-ring-shadow, 0 0 #0000), var(--uspk-shadow);
+  -webkit-transition-property: background-color, border-color, color, fill, stroke, opacity, -webkit-box-shadow, -webkit-transform;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, -webkit-box-shadow, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  -webkit-transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  transition-duration: 150ms;
+  padding: .75rem 2rem
+}
+
+.button-primary {
+  --uspk-bg-opacity: 1;
+  background-color: rgba(0, 0, 0, var(--uspk-bg-opacity));
+  --uspk-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--uspk-text-opacity))
+}
+
+.button-primary:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(55, 65, 81, var(--tw-bg-opacity))
+}
+
+.button-primary:focus {
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(75, 85, 99, var(--tw-ring-opacity));
+  --tw-ring-opacity: 0.5
+}
+
+.button-secondary {
+  --uspk-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--uspk-bg-opacity));
+  --uspk-border-opacity: 1;
+  border-color: rgba(0, 0, 0, var(--uspk-border-opacity));
+  border-width: 2px;
+  --uspk-text-opacity: 1;
+  color: rgba(0, 0, 0, var(--uspk-text-opacity))
+}
+
+.button-secondary:hover {
+  --uspk-bg-opacity: 1;
+  --tw-bg-opacity: 1;
+  background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
+  color: rgba(255, 255, 255, var(--uspk-text-opacity))
+}
+
+.button-default {
+  --uspk-bg-opacity: 1;
+  background-color: rgba(59, 130, 246, var(--uspk-bg-opacity));
+  --uspk-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--uspk-text-opacity))
+}
+
+.button-disabled {
+  --uspk-bg-opacity: 1;
+  background-color: rgba(209, 213, 219, var(--uspk-bg-opacity));
+  --uspk-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--uspk-text-opacity))
+}
+
+.button-disabled:hover {
+  --uspk-bg-opacity: 1;
+  background-color: rgba(229, 231, 235, var(--uspk-bg-opacity))
+}
