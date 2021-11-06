@@ -1,8 +1,9 @@
 {
   "name": "@uspk/react-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Uspk react component library",
-  "main": "index.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "author": {
     "name": "Alvaro Castillo",
     "url": "https://alvarocastle.com"
