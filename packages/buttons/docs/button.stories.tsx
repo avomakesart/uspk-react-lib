@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Button } from '../src';
 import mdx from "./button.mdx"
 

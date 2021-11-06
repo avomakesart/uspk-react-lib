@@ -1,10 +1,10 @@
-import React, {ChangeEventHandler} from 'react'
-import {nanoid} from 'nanoid'
+import * as React from 'react'
+import { nanoid } from 'nanoid'
 import './select.css'
 
 interface SelectInputProps {
   label?: string
-  handleChange: ChangeEventHandler<HTMLSelectElement>
+  handleChange: React.ChangeEventHandler<HTMLSelectElement>
   data: string[]
   selectedValue: string | string[]
   defaultValue: string
@@ -29,7 +29,7 @@ export const SelectInput: React.FC<SelectInputProps> = ({
   errorMessage,
   className,
   disabled,
-  multiple
+  multiple,
 }) => {
   const selectClassName = [
     'select-input',

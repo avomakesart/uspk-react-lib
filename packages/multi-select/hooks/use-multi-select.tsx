@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useMemo, useState } from 'react'
+import * as React from 'react'
 
 import { injectStyles } from '../lib/inject-style'
 import { ISelectProps, Option } from '../lib/interfaces'
@@ -42,12 +42,12 @@ export const MultiSelectProvider = ({
   props,
   children,
 }: MultiSelectProviderProps) => {
-  const [options, setOptions] = useState(props.options)
+  const [options, setOptions] = React.useState(props.options)
   const t = (key: any) => props.overrideStrings?.[key] || defaultStrings[key]
 
-  useMemo(() => injectStyles(), [])
+  React.useMemo(() => injectStyles(), [])
 
-  useEffect(() => {
+  React.useEffect(() => {
     setOptions(props.options)
   }, [props.options])
 

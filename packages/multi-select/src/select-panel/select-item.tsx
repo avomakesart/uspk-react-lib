@@ -2,7 +2,7 @@
 /**
  * This component represents an individual item in the multi-select drop-down
  */
-import React, { useRef } from "react";
+import * as React from "react";
 
 import { useKey } from "../../hooks/use-key";
 import { KEY } from "../../lib/constants";
@@ -30,7 +30,7 @@ const SelectItem = ({
   onClick,
 }: ISelectItemProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const itemRef: any = useRef();
+  const itemRef: any = React.useRef();
 
   const onOptionCheck = (e: any) => {
     toggleChecked();

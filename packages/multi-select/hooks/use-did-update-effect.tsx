@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useRef } from "react";
+import * as React from 'react'
 
 /**
  * similar to `useEffect` but gets triggered only when value changes
@@ -7,11 +7,11 @@ import { useEffect, useRef } from "react";
  * @param inputs dependency array
  */
 export function useDidUpdateEffect(fn: any, inputs: any) {
-  const didMountRef = useRef(false);
+  const didMountRef = React.useRef(false)
 
-  useEffect(() => {
-    if (didMountRef.current) fn();
-    else didMountRef.current = true;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, inputs);
+  React.useEffect(() => {
+    if (didMountRef.current) fn()
+    else didMountRef.current = true
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, inputs)
 }

@@ -4,7 +4,7 @@
  * and hosts it in the component.  When the component is selected, it
  * drops-down the contentComponent and applies the contentProps.
  */
-import React, { useEffect, useRef, useState } from 'react'
+import * as React from 'react'
 
 import { useDidUpdateEffect } from '../hooks/use-did-update-effect'
 import { useKey } from '../hooks/use-key'
@@ -32,18 +32,18 @@ const Dropdown = () => {
     ClearSelectedIcon,
   } = useMultiSelect()
 
-  const [isInternalExpand, setIsInternalExpand] = useState(true)
-  const [expanded, setExpanded] = useState(defaultIsOpen)
-  const [hasFocus, setHasFocus] = useState(false)
+  const [isInternalExpand, setIsInternalExpand] = React.useState(true)
+  const [expanded, setExpanded] = React.useState(defaultIsOpen)
+  const [hasFocus, setHasFocus] = React.useState(false)
   const FinalArrow = ArrowRenderer || Arrow
 
-  const wrapper: any = useRef()
+  const wrapper: any = React.useRef()
 
   useDidUpdateEffect(() => {
     onMenuToggle && onMenuToggle(expanded)
   }, [expanded])
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (defaultIsOpen === undefined && typeof isOpen === 'boolean') {
       setIsInternalExpand(false)
       setExpanded(isOpen)

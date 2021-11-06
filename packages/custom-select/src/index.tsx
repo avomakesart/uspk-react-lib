@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {useEffect, useState} from 'react'
-import {CheckIcon} from './assets/icons/CheckIcon'
+import * as React from 'react'
+import { CheckIcon } from './assets/icons/CheckIcon'
 import './custom-select.css'
-import {nanoid} from 'nanoid'
+import { nanoid } from 'nanoid'
 
 interface CustomSelectProps {
   label?: string | undefined
@@ -15,8 +15,8 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   label,
   value,
 }) => {
-  const [selected, setSelected] = useState([])
-  const [open, setOpen] = useState(false)
+  const [selected, setSelected] = React.useState([])
+  const [open, setOpen] = React.useState(false)
 
   const handleOpen = () => setOpen(!open)
 
@@ -25,7 +25,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
     setOpen(false)
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     setSelected(value)
     return () => {
       setSelected([])

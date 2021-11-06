@@ -2,7 +2,7 @@
 /*
  * copied from https://github.com/imbhargav5/rooks/blob/master/packages/shared/useKeyRef.ts
  */
-import { Ref, useCallback, useEffect, useMemo, useRef } from "react";
+import * as React from "react";
 
 interface Options {
   /**
@@ -17,7 +17,7 @@ interface Options {
    * target ref on which the events should be listened. If no target is specified,
    * events are listened to on the window
    */
-  target?: Ref<HTMLElement> | null;
+  target?:React.Ref<HTMLElement> | null;
 }
 
 const defaultOptions = {
@@ -39,20 +39,20 @@ function useKey(
   callback: (e: KeyboardEvent) => any,
   opts?: Options
 ): void {
-  const keyList: Array<string | number> = useMemo(
+  const keyList: Array<string | number> = React.useMemo(
     () => (Array.isArray(input) ? input : [input]),
     [input]
   );
   const options = Object.assign({}, defaultOptions, opts);
   const { when, eventTypes } = options;
-  const callbackRef = useRef<(e: KeyboardEvent) => any>(callback);
+  const callbackRef = React.useRef<(e: KeyboardEvent) => any>(callback);
   const { target } = options as any;
 
-  useEffect(() => {
+  React.useEffect(() => {
     callbackRef.current = callback;
   });
 
-  const handle = useCallback(
+  const handle = React.useCallback(
     (e: KeyboardEvent) => {
       if (keyList.some((k) => e.key === k || e.code === k)) {
         callbackRef.current(e);
@@ -61,7 +61,7 @@ function useKey(
     [keyList]
   );
 
-  useEffect((): any => {
+  React.useEffect((): any => {
     if (when && typeof window !== "undefined") {
       const targetNode = target ? target["current"] : window
       eventTypes.forEach((eventType) => {

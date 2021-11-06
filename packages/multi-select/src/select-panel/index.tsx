@@ -4,22 +4,16 @@
  * user selects the component.  It encapsulates the search filter, the
  * Select-all item, and the list of options.
  */
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import * as React from 'react'
 
-import { useKey } from "../../hooks/use-key";
-import { useMultiSelect } from "../../hooks/use-multi-select";
-import { KEY } from "../../lib/constants";
-import { debounce } from "../../lib/debounce";
-import { filterOptions } from "../../lib/fuzzy-match-utils";
-import { Cross } from "./cross";
-import SelectItem from "./select-item";
-import SelectList from "./select-list";
+import { useKey } from '../../hooks/use-key'
+import { useMultiSelect } from '../../hooks/use-multi-select'
+import { KEY } from '../../lib/constants'
+import { debounce } from '../../lib/debounce'
+import { filterOptions } from '../../lib/fuzzy-match-utils'
+import { Cross } from './cross'
+import SelectItem from './select-item'
+import SelectList from './select-list'
 
 enum FocusType {
   SEARCH = 0,
@@ -42,147 +36,147 @@ const SelectPanel = () => {
     debounceDuration,
     isCreatable,
     onCreateOption,
-  } = useMultiSelect();
+  } = useMultiSelect()
 
-  const listRef = useRef<any>();
-  const searchInputRef = useRef<any>();
-  const [searchText, setSearchText] = useState("");
-  const [filteredOptions, setFilteredOptions] = useState(options);
-  const [searchTextForFilter, setSearchTextForFilter] = useState("");
-  const [focusIndex, setFocusIndex] = useState(0);
+  const listRef = React.useRef<any>()
+  const searchInputRef = React.useRef<any>()
+  const [searchText, setSearchText] = React.useState('')
+  const [filteredOptions, setFilteredOptions] = React.useState(options)
+  const [searchTextForFilter, setSearchTextForFilter] = React.useState('')
+  const [focusIndex, setFocusIndex] = React.useState(0)
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedSearch = useCallback(
+  const debouncedSearch = React.useCallback(
     debounce((query: any) => setSearchTextForFilter(query), debounceDuration),
-    []
-  );
+    [],
+  )
 
-  const skipIndex = useMemo(() => {
-    let start = 0;
+  const skipIndex = React.useMemo(() => {
+    let start = 0
 
-    if (!disableSearch) start += 1; // if search is enabled then +1 to skipIndex
-    if (hasSelectAll) start += 1; // if select-all is enabled then +1 to skipIndex
+    if (!disableSearch) start += 1 // if search is enabled then +1 to skipIndex
+    if (hasSelectAll) start += 1 // if select-all is enabled then +1 to skipIndex
 
-    return start;
-  }, [disableSearch, hasSelectAll]);
+    return start
+  }, [disableSearch, hasSelectAll])
 
   const selectAllOption = {
-    label: searchText ? t("selectAllFiltered") : t("selectAll"),
-    value: "",
-  };
+    label: searchText ? t('selectAllFiltered') : t('selectAll'),
+    value: '',
+  }
 
   const selectAllValues = (checked: any) => {
     const filteredValues = filteredOptions
-      .filter((o) => !o.disabled)
-      .map((o) => o.value);
+      .filter(o => !o.disabled)
+      .map(o => o.value)
 
     if (checked) {
-      const selectedValues = value.map((o) => o.value);
-      const finalSelectedValues = [...selectedValues, ...filteredValues];
+      const selectedValues = value.map(o => o.value)
+      const finalSelectedValues = [...selectedValues, ...filteredValues]
 
-      return options.filter((o) => finalSelectedValues.includes(o.value));
+      return options.filter(o => finalSelectedValues.includes(o.value))
     }
 
-    return value.filter((o) => !filteredValues.includes(o.value));
-  };
+    return value.filter(o => !filteredValues.includes(o.value))
+  }
 
   const selectAllChanged = (checked: boolean) => {
-    const newOptions = selectAllValues(checked);
-    onChange(newOptions);
-  };
+    const newOptions = selectAllValues(checked)
+    onChange(newOptions)
+  }
 
   const handleSearchChange = (e: any) => {
-    debouncedSearch(e.target.value);
-    setSearchText(e.target.value);
-    setFocusIndex(FocusType.SEARCH);
-  };
+    debouncedSearch(e.target.value)
+    setSearchText(e.target.value)
+    setFocusIndex(FocusType.SEARCH)
+  }
 
   const handleClear = () => {
-    setSearchTextForFilter("");
-    setSearchText("");
-    searchInputRef?.current?.focus();
-  };
+    setSearchTextForFilter('')
+    setSearchText('')
+    searchInputRef?.current?.focus()
+  }
 
-  const handleItemClicked = (index: number) => setFocusIndex(index);
+  const handleItemClicked = (index: number) => setFocusIndex(index)
 
   // Arrow Key Navigation
   const handleKeyDown = (e: any) => {
     switch (e.code) {
       case KEY.ARROW_UP:
-        updateFocus(-1);
-        break;
+        updateFocus(-1)
+        break
       case KEY.ARROW_DOWN:
-        updateFocus(1);
-        break;
+        updateFocus(1)
+        break
       default:
-        return;
+        return
     }
-    e.stopPropagation();
-    e.preventDefault();
-  };
+    e.stopPropagation()
+    e.preventDefault()
+  }
 
   useKey([KEY.ARROW_DOWN, KEY.ARROW_UP], handleKeyDown, {
     target: listRef,
-  });
+  })
 
   const handleSearchFocus = () => {
-    setFocusIndex(FocusType.SEARCH);
-  };
+    setFocusIndex(FocusType.SEARCH)
+  }
 
   const handleOnCreateOption = async () => {
-    let newOption = { label: searchText, value: searchText, __isNew__: true };
+    let newOption = { label: searchText, value: searchText, __isNew__: true }
 
     // if custom `onCreateOption` is given then this will call this
     if (onCreateOption) {
-      newOption = await onCreateOption(searchText);
+      newOption = await onCreateOption(searchText)
     }
 
     // adds created value to existing options
-    setOptions([newOption, ...options]);
-    handleClear();
+    setOptions([newOption, ...options])
+    handleClear()
 
-    onChange([...value, newOption]);
-  };
+    onChange([...value, newOption])
+  }
 
   const getFilteredOptions = async () =>
     customFilterOptions
       ? await customFilterOptions(options, searchTextForFilter)
-      : filterOptions(options, searchTextForFilter);
+      : filterOptions(options, searchTextForFilter)
 
   const updateFocus = (offset: number) => {
-    let newFocus = focusIndex + offset;
-    newFocus = Math.max(0, newFocus);
-    newFocus = Math.min(newFocus, options.length + Math.max(skipIndex - 1, 0));
-    setFocusIndex(newFocus);
-  };
+    let newFocus = focusIndex + offset
+    newFocus = Math.max(0, newFocus)
+    newFocus = Math.min(newFocus, options.length + Math.max(skipIndex - 1, 0))
+    setFocusIndex(newFocus)
+  }
 
-  useEffect(() => {
-    listRef?.current?.querySelector(`[tabIndex='${focusIndex}']`)?.focus();
-  }, [focusIndex]);
+  React.useEffect(() => {
+    listRef?.current?.querySelector(`[tabIndex='${focusIndex}']`)?.focus()
+  }, [focusIndex])
 
-  const [isAllOptionSelected, hasSelectableOptions] = useMemo(() => {
-    const filteredOptionsList = filteredOptions.filter((o) => !o.disabled);
+  const [isAllOptionSelected, hasSelectableOptions] = React.useMemo(() => {
+    const filteredOptionsList = filteredOptions.filter(o => !o.disabled)
     return [
       filteredOptionsList.every(
-        (o) => value.findIndex((v) => v.value === o.value) !== -1
+        o => value.findIndex(v => v.value === o.value) !== -1,
       ),
       filteredOptionsList.length !== 0,
-    ];
+    ]
     // eslint-disable-next-line
-  }, [filteredOptions, value]);
+  }, [filteredOptions, value])
 
-  useEffect(() => {
-    getFilteredOptions().then(setFilteredOptions);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTextForFilter, options]);
+  React.useEffect(() => {
+    getFilteredOptions().then(setFilteredOptions)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchTextForFilter, options])
 
   return (
     <div className="select-panel" role="listbox" ref={listRef}>
       {!disableSearch && (
         <div className="search">
           <input
-            placeholder={t("search")}
+            placeholder={t('search')}
             type="text"
-            aria-describedby={t("search")}
+            aria-describedby={t('search')}
             onChange={handleSearchChange}
             onFocus={handleSearchFocus}
             value={searchText}
@@ -194,7 +188,7 @@ const SelectPanel = () => {
             className="search-clear-button"
             hidden={!searchText}
             onClick={handleClear}
-            aria-label={t("clearSearch")}
+            aria-label={t('clearSearch')}
           >
             {ClearIcon || <Cross />}
           </button>
@@ -222,14 +216,14 @@ const SelectPanel = () => {
           />
         ) : isCreatable ? (
           <li onClick={handleOnCreateOption} className="select-item creatable">
-            {`${t("create")} "${searchText}"`}
+            {`${t('create')} "${searchText}"`}
           </li>
         ) : (
-          <li className="no-options">{t("noOptions")}</li>
+          <li className="no-options">{t('noOptions')}</li>
         )}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default SelectPanel;
+export default SelectPanel

@@ -1,4 +1,4 @@
-import React, {CSSProperties} from 'react'
+import * as React from 'react'
 import './input.css'
 
 interface TextFieldProps {
@@ -28,9 +28,9 @@ interface TextFieldProps {
   maxLength?: number | undefined
   className?: string
   isReadOnly?: boolean | undefined
-  labelStyle?: CSSProperties
+  labelStyle?: React.CSSProperties
   disabled?: boolean | undefined
-  style?: CSSProperties
+  style?: React.CSSProperties
 }
 
 export const TextField: React.FC<TextFieldProps> = ({
