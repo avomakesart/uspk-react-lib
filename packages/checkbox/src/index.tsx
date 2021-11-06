@@ -1,17 +1,8 @@
 import * as React from 'react'
 import './checkbox.css'
+import { ICheckboxProps } from './types'
 
-interface CheckboxProps {
-  onCheck: React.ChangeEventHandler<HTMLInputElement>
-  checked: boolean | undefined
-  name: string | undefined
-  id?: string | undefined
-  className?: string | undefined
-  label?: string | undefined
-  htmlLabelFor?: string | undefined
-}
-
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: React.FC<ICheckboxProps> = ({
   onCheck,
   checked,
   name,

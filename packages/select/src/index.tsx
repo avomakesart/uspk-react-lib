@@ -1,23 +1,9 @@
-import * as React from 'react'
 import { nanoid } from 'nanoid'
+import * as React from 'react'
 import './select.css'
+import { ISelectInputProps } from './types'
 
-interface SelectInputProps {
-  label?: string
-  handleChange: React.ChangeEventHandler<HTMLSelectElement>
-  data: string[]
-  selectedValue: string | string[]
-  defaultValue: string
-  name: string
-  required?: boolean
-  error?: boolean | undefined
-  errorMessage?: string | undefined
-  className?: string
-  disabled?: boolean | undefined
-  multiple?: boolean | undefined
-}
-
-export const SelectInput: React.FC<SelectInputProps> = ({
+export const SelectInput: React.FC<ISelectInputProps> = ({
   defaultValue,
   label,
   handleChange,

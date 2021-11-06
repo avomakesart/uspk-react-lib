@@ -3,14 +3,9 @@ import * as React from 'react'
 import { CheckIcon } from './assets/icons/CheckIcon'
 import './custom-select.css'
 import { nanoid } from 'nanoid'
+import { ICustomSelectProps } from './types'
 
-interface CustomSelectProps {
-  label?: string | undefined
-  items?: string[] | undefined
-  value?: any
-}
-
-export const CustomSelect: React.FC<CustomSelectProps> = ({
+export const CustomSelect: React.FC<ICustomSelectProps> = ({
   items,
   label,
   value,

@@ -16,9 +16,11 @@
     "isolatedModules": false,
     "jsx": "react",
     "outDir": "lib",
-    "declaration": true,
     "sourceMap": true,
+    "declaration": true,
     "declarationMap": true,
+    "declarationDir": "types",
+    "emitDeclarationOnly": true
   },
   "include": [
     "mdx.d.ts",

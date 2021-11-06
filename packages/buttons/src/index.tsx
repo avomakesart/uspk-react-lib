@@ -1,20 +1,8 @@
 import * as React from 'react'
 import './button.css'
+import { IButtonProps } from './types'
 
-interface ButtonProps {
-  children: React.ReactNode | React.ReactNode[]
-  type: 'button' | 'submit' | 'reset' | undefined
-  disabled?: boolean | undefined
-  btnType?: string | undefined
-  primary?: boolean | undefined
-  secondary?: boolean | undefined
-  onClick?: () => void
-  className?: string | undefined
-  backgroundColor?: string
-  textColor?: string
-}
-
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   children,
   className,
   type,
