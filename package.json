@@ -1,6 +1,6 @@
 {
   "name": "@uspk/react-lib",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Uspk react component library",
   "main": "build/index.js",
   "module": "build/index.js",
@@ -13,7 +13,8 @@
     "start": "webpack serve --config webpack.dev.config.ts",
     "build": "webpack --config webpack.prod.config.ts",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=93109a8d34e4"
   },
   "repository": {
     "type": "git",

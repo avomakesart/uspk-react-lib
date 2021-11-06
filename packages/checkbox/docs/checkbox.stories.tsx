@@ -1,6 +1,5 @@
 import React, { ChangeEvent, useState } from 'react'
-import { Template } from 'webpack'
-import { Checkbox, SelectInput } from '../src'
+import { Checkbox } from '../src'
 import mdx from './checkbox.mdx'
 
 export default {
@@ -26,7 +25,7 @@ const Example = args => {
       onCheck={handleCheck}
       checked={isChecked}
       name="checked"
-      label="Accept terms and conditions"
+      label="Do you like coffee?"
       {...args}
     />
   )
