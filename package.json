@@ -24,6 +24,10 @@
     "type": "git",
     "url": "git+https://github.com/avomakesart/uspk-react-lib.git"
   },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -38,6 +42,7 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-replace": "^3.0.0",
     "@rollup/plugin-typescript": "^8.3.0",
