@@ -1,0 +1,49 @@
+.link-primary {
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    --uspk-bg-opacity: 1;
+    color: rgba(0, 112, 244, var(--uspk-bg-opacity));
+    cursor: pointer;    
+    text-decoration: none;
+}
+
+.link-secondary {
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    --uspk-bg-opacity: 1;
+    color: rgba(0, 0, 0, var(--uspk-bg-opacity));
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.link-inverse {
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button-link-primary {
+    font-family: "Manrope", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    color: #0070ba;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+}
+
+.link-left-icon {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.375rem;
+}

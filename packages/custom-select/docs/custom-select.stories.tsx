@@ -1,12 +1,11 @@
-import React, {ChangeEvent, useState} from 'react'
-import {CustomSelect} from '../src'
+import React, { useState } from 'react'
+import { CustomSelect } from '../src'
 import mdx from './custom-select.mdx'
 
 export default {
   title: 'Components/Select/Custom Select',
   parameters: {
-    tags: ['text-field', 'uspk', 'react'],
-    // layout: 'centered',
+    tags: ['custom-select', 'uspk', 'react'],
     docs: {
       page: mdx,
     },
@@ -14,15 +13,20 @@ export default {
 }
 
 export const Default = () => {
-  const [value, setValue] = useState('')
-
-  const inputData = ['México', 'USA', 'UK']
-
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value)
-  }
+  const [value] = useState([])
+  const options = [
+    { label: 'Grapes 🍇', value: 'grapes' },
+    { label: 'Mango 🥭', value: 'mango' },
+    { label: 'Watermelon 🍉', value: 'watermelon' },
+    { label: 'Pear 🍐', value: 'pear' },
+  ]
 
   return (
-    <CustomSelect label="Where do you live?" items={inputData} value={value} />
+    <CustomSelect
+      label="What is your favorite fruit?"
+      items={options}
+      value={value}
+      placeHolder="Select a fruit"
+    />
   )
 }

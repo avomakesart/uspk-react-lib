@@ -40,6 +40,7 @@ export const SelectInput: React.FC<ISelectInputProps> = ({
           className={selectClassName}
           disabled={disabled}
           multiple={multiple}
+          aria-label={label ? label : 'textField'}
         >
           <option value={defaultValue}>{defaultValue}</option>
           {data?.map((value: string) => (

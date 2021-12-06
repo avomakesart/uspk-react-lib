@@ -5,7 +5,6 @@
  * Select-all item, and the list of options.
  */
 import * as React from 'react'
-
 import { useKey } from '../../hooks/use-key'
 import { useMultiSelect } from '../../hooks/use-multi-select'
 import { KEY } from '../../lib/constants'

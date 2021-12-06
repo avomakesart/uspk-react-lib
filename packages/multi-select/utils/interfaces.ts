@@ -11,6 +11,7 @@ export interface Option {
 export interface ISelectProps {
   options: Option[];
   value: Option[];
+  label?: string | undefined
   onChange?: any;
   valueRenderer?: (selected: Option[], options: Option[]) => ReactNode;
   ItemRenderer?: any;

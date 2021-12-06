@@ -12,7 +12,7 @@ export const DropdownHeader = () => {
   const getSelectedText = () => value.map(s => s.label).join(', ')
 
   return noneSelected ? (
-    <span className="gray">{customText || t('selectSomeItems')}</span>
+    <span>{customText || t('selectSomeItems')}</span>
   ) : (
     <span>
       {customText ||

@@ -1,0 +1,93 @@
+import {Story, Canvas, Description} from '@storybook/addon-docs/blocks'
+import README from '../README.md'
+
+<br />
+<br />
+
+<Description markdown={README} />
+
+<br />
+<br />
+
+## Primary Link
+
+<Canvas withSource="open">
+  <Story id="components-link--primary" />
+</Canvas>
+
+## Secondary Link
+
+<Canvas withSource="open">
+  <Story id="components-link--secondary" />
+</Canvas>
+
+## Primary Link with Icon
+
+> Note: Please provide an optional Icon with the `leftIcon` prop.
+
+<Canvas withSource="open">
+  <Story id="components-link--primary-with-icon" />
+</Canvas>
+
+## Secondary Link with Icon
+
+> Note: Please provide an optional Icon with the `leftIcon` prop.
+
+<Canvas withSource="open">
+  <Story id="components-link--secondary-with-icon" />
+</Canvas>
+
+## Inverse
+
+> Note: Please provide an optional Icon with the `leftIcon` prop.
+
+<Canvas withSource="open" style={{backgroundColor: '#1072eb'}}>
+  <Story id="components-link--inverse" />
+</Canvas>
+
+## With a different html element
+
+> Note: Please provide an optional Icon with the `leftIcon` prop.
+
+<Canvas withSource="open">
+  <Story id="components-link--with-element" />
+</Canvas>
+
+## Props
+
+Accepts props for `HTMLAnchorElement` like href, etc. In addition
+
+**as** `React.ElementType`
+
+Links will be `<a>` by default. Pass this prop If you want it to be a different HTML element.
+
+**secondary** `boolean`
+
+Pass this prop to get the secondary style links.
+
+**inverse** `boolean`
+
+Pass this prop for links used over a dark color background.
+
+**leftIcon** `Icon`
+
+Accepts an Icon to display on the left
+
+**className** `string`
+
+Prop to pass an additional class to Link.
+
+**ref** `React.Ref`
+
+Forwards provided ref to underlying `a` element.
+
+
+**onClick** `func`
+
+If the `as` prop is passed as `button`, we will have an `onClick` prop, to execute a funciont
+
+
+**buttonType** `string`
+
+If the `as` prop is passed as `button`, we will have a `buttonType` prop, to specify what kind of button we will, like:
+`button` | `submit` | `reset`

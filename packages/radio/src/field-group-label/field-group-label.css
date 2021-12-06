@@ -1,0 +1,22 @@
+.radio-group__label {
+    color: #515354;
+    font-family: "Manrope", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    display: block;
+    font-weight: normal;
+    padding: 0.625rem 0;
+    margin-bottom: 0;
+}
+
+.radio-group__label--with-svg-icon {
+    color: #515354;
+    font-family: "Manrope", sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    display: block;
+    font-weight: normal;
+    padding: 0.625rem 0;
+    margin-bottom: 0;
+    margin-right: 0.4rem;
+}

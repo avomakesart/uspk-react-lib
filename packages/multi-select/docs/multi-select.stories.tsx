@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import MultiSelect from '../src'
+import { MultiSelect } from '../src'
 import mdx from './multi-select.mdx'
 
 export default {
@@ -22,9 +22,8 @@ export const Example = () => {
   ]
   return (
     <div>
-      <h1>Select Fruits</h1>
-
       <MultiSelect
+        label="Select Fruits"
         options={options}
         value={selected}
         onChange={setSelected}

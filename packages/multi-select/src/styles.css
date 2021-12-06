@@ -8,6 +8,7 @@
   --uspk-p: 10px;
   --uspk-radius: 4px;
   --uspk-h: 38px;
+  --uspk-opacity: 1;
 }
 
 .uspk * {
@@ -19,9 +20,20 @@
   color: var(--uspk-gray);
 }
 
+.uspk .multi-select-label {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: rgba(31, 41, 55, var(--uspk-opacity));
+}
+
 .uspk .dropdown-content {
   position: absolute;
   z-index: 1;
+  margin-left: -0.4rem;
   top: 100%;
   width: 100%;
   padding-top: 8px;
@@ -37,6 +49,8 @@
 .uspk .dropdown-container {
   position: relative;
   outline: 0;
+  cursor: pointer;
+  padding: 0.35rem 0.4rem;
   background-color: var(--uspk-bg);
   border: 2px solid var(--uspk-border);
 }
@@ -55,6 +69,7 @@
   position: relative;
   padding: 0 var(--uspk-p);
   display: flex;
+  cursor: pointer;
   align-items: center;
   width: 100%;
   height: var(--uspk-h);
@@ -63,7 +78,10 @@
 }
 
 .uspk .dropdown-heading .dropdown-heading-value {
+  font-size: 1rem;
+  font-family: 'Manrope', sans-serif;
   overflow: hidden;
+  cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
@@ -86,11 +104,15 @@
 
 .uspk .options li {
   list-style: none;
+  font-size: 1rem;
+  font-family: 'Manrope', sans-serif;
   margin: 0;
 }
 
 .uspk .select-item {
   box-sizing: border-box;
+  font-size: 1rem;
+  font-family: 'Manrope', sans-serif;
   cursor: pointer;
   display: block;
   padding: var(--uspk-p);
@@ -122,6 +144,8 @@
   height: var(--uspk-h);
   padding: 0 var(--uspk-p);
   width: 100%;
+  font-size: 1rem;
+  font-family: 'Manrope', sans-serif;
   outline: 0;
   border: 0;
 }

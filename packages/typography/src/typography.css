@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.typography--variant-h1 {
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -.02em
+}
+
+.typography--variant-h2 {
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -.02em
+}
+
+.typography--variant-h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.167;
+}
+
+.typography--variant-h4 {
+    font-size: 2.125rem;
+    font-weight: 700;
+    line-height: 1.235;
+}
+
+.typography--variant-h5 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.334;
+}
+
+.typography--variant-h6 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.6;
+    letter-spacing: 0.0075em;
+}
+
+.typography--variant-subheading1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.typography--variant-subheading2 {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.typography--variant-body1 {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: 0.00938em;
+}
+
+.typography--variant-body2 {
+    font-size: 0.875rem;
+    line-height: 1.43;
+    font-weight: 400;
+    letter-spacing: 0.01071em;
+}
+
+.typography--color-primary {
+    color: #000000;
+}
+
+.typography--color-highlight {
+    color: #f59e0b
+}
+
+.typography--color-error {
+    color: #eb5757;
+}

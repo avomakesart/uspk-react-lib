@@ -1,35 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { nanoid } from 'nanoid'
 import * as React from 'react'
 import { CheckIcon } from './assets/icons/CheckIcon'
 import './custom-select.css'
-import { nanoid } from 'nanoid'
-import { ICustomSelectProps } from './types'
+import useOnClickOutside from './hooks/use-on-click-outside'
+import { ICustomSelectProps, Option } from './types'
 
 export const CustomSelect: React.FC<ICustomSelectProps> = ({
   items,
   label,
   value,
+  placeHolder,
 }) => {
-  const [selected, setSelected] = React.useState([])
+  const [, setSelected] = React.useState<Option[]>([])
+  const [selection, setSelection] = React.useState<undefined | string>('')
   const [open, setOpen] = React.useState(false)
+  const dropdownRef = React.useRef(null)
 
-  const handleOpen = () => setOpen(!open)
+  const handleOpen = () => setOpen(prev => !prev)
+  const handleClickOutside = () => setOpen(false)
 
-  const handleSelect = (item: any) => () => {
+  useOnClickOutside(dropdownRef, handleClickOutside)
+
+  const handleSelect = (item: Option[], label: string) => () => {
     setSelected(item)
+    setSelection(label)
     setOpen(false)
   }
 
   React.useEffect(() => {
     setSelected(value)
-    return () => {
-      setSelected([])
-    }
+    return () => setSelected([])
   }, [value])
 
   return (
     <>
-      <div>
+      <div ref={dropdownRef}>
         <label id="listbox-label" className="custom-select-label">
           {label}
         </label>
@@ -44,13 +49,11 @@ export const CustomSelect: React.FC<ICustomSelectProps> = ({
           >
             <span className="custom-select-item-container">
               <span className="custom-select-item">
-                {!selected ? 'Selecciona una opción' : selected}
+                {!selection ? placeHolder : selection}
               </span>
             </span>
             <span className="custom-select-icon-container">
-              {/* <!-- Heroicon name: solid/selector --> */}
               <svg
-                className="h-5 w-5 text-gray-400"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -73,7 +76,7 @@ export const CustomSelect: React.FC<ICustomSelectProps> = ({
               aria-labelledby="listbox-label"
               aria-activedescendant="listbox-option-3"
             >
-              {items?.map((item: any) => (
+              {items?.map((item: Option) => (
                 <li
                   className="custom-select-item-list-nested-container"
                   id="listbox-option-0"
@@ -84,16 +87,16 @@ export const CustomSelect: React.FC<ICustomSelectProps> = ({
                     <span
                       className={`
                     ${
-                      !selected === value
+                      selection === item.label
                         ? 'custom-select-list-item custom-select-list-item-active'
                         : 'custom-select-list-item'
                     }`}
-                      onClick={handleSelect(item)}
+                      onClick={handleSelect([item], item.label)}
                     >
-                      {item}
+                      {item.label}
                     </span>
 
-                    {selected === item && (
+                    {selection === item.label && (
                       <span>
                         <CheckIcon className="custom-select-icon" />
                       </span>

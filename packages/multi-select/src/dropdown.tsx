@@ -5,16 +5,15 @@
  * drops-down the contentComponent and applies the contentProps.
  */
 import * as React from 'react'
-
 import { useDidUpdateEffect } from '../hooks/use-did-update-effect'
 import { useKey } from '../hooks/use-key'
 import { useMultiSelect } from '../hooks/use-multi-select'
 import { KEY } from '../lib/constants'
-import SelectPanel from './select-panel'
-import { Cross } from './select-panel/cross'
 import { Arrow } from './arrow'
 import { DropdownHeader } from './header'
 import { Loading } from './loading'
+import SelectPanel from './select-panel'
+import { Cross } from './select-panel/cross'
 
 const Dropdown = () => {
   const {
@@ -48,10 +47,10 @@ const Dropdown = () => {
       setIsInternalExpand(false)
       setExpanded(isOpen)
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen])
 
-  const handleKeyDown = (e:any) => {
+  const handleKeyDown = (e: any) => {
     // allows space and enter when focused on input/button
     if (
       ['text', 'button'].includes(e.target.type) &&

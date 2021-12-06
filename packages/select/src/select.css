@@ -1,6 +1,6 @@
 .select-input-label {
   display: block;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-weight: 800;
   font-size: 1rem;
   line-height: 1.25rem;
@@ -23,7 +23,7 @@
   --tw-bg-opacity: 1;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   --tw-border-opacity: 1;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Manrope', sans-serif;
   border-color: rgba(0, 0, 0, var(--tw-border-opacity));
   border-width: 2px;
   padding: .75rem 1rem;
@@ -97,8 +97,9 @@
   font-size: 1rem;
   line-height: 1.5rem;
   --tw-text-opacity: 1;
-  color: rgba(239, 68, 68, var(--tw-text-opacity));
-  font-family: 'Poppins', sans-serif;
+  color: rgba(244, 67, 54, var(--tw-text-opacity));
+  font-weight: 500;
+  font-family: 'Manrope', sans-serif;
 }
 
 .select-input-disabled {

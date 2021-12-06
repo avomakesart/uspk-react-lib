@@ -1,0 +1,7 @@
+.card-container {
+    @apply w-full max-w-lg mx-auto my-4 bg-white shadow-xl rounded-xl
+}
+
+.card-wrapper {
+    @apply p-6 
+}
