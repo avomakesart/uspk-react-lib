@@ -19,7 +19,16 @@
     "build-lib": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "lint": "eslint packages",
+    "prettier:fix": "prettier --write",
+    "prettier:check": "prettier --check",
     "chromatic": "npx chromatic --project-token=93109a8d34e4"
+  },
+  "lint-staged": {
+    "packages/*.{ts,tsx}": [
+      "yarn prettier:fix",
+      "yarn lint"
+    ]
   },
   "repository": {
     "type": "git",
@@ -74,6 +83,8 @@
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "lodash": "^4.17.21",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
