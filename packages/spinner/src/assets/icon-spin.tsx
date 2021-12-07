@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { IconSpinProps } from '../types'
 
 export const IconSpin: React.FC<IconSpinProps> = ({

@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react'
+import * as React from 'react'
 import { OutlineX } from './assets/icons/outline-x'
 import { useOnClickOutside, useOnEscapeKeyDown } from './hooks'
 import './modal.css'
@@ -11,15 +11,15 @@ export const Modal: React.FC<IModalProps> = ({
   noOverlay,
   width,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
   const isControlled = typeof propsIsOpen === 'boolean'
   const open = isControlled ? propsIsOpen : isModalOpen
 
-  const modalContent = useRef(null)
+  const modalContent = React.useRef(null)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const clickableOverlayRef = useRef<any>()
+  const clickableOverlayRef = React.useRef<any>()
 
-  const handleClose = useCallback(() => {
+  const handleClose = React.useCallback(() => {
     if (!isControlled) {
       setIsModalOpen(false)
     } else {

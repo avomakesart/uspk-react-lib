@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { IAccordionRowProps, AccordionRow } from './accordion-row/index'
 import './accordion.css'
 

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/display-name */
 import * as React from 'react'
 import './tooltip.css'
@@ -35,7 +36,9 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
       >
         {children}
         {active && (
-          <div className={`tooltip-tip tooltip-tip-${position || 'top'}`}>{content}</div>
+          <div className={`tooltip-tip tooltip-tip-${position || 'top'}`}>
+            {content}
+          </div>
         )}
       </div>
     )

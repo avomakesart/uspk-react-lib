@@ -11,14 +11,12 @@ export const CardContent: React.FC<ICardContentProps> = ({ children }) => {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const isMediaCard = cardCtx?.hasMedia
   const [media, setMedia] = React.useState(isMediaCard)
-  console.log(media)
 
   React.useEffect(() => {
     if (media !== undefined) {
       setMedia(true)
     }
-
-  }, [])
+  }, [media])
 
   return (
     <div

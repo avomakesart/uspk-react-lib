@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { CustomSelect } from '../src'
 import mdx from './custom-select.mdx'
 
@@ -13,7 +13,7 @@ export default {
 }
 
 export const Default = () => {
-  const [value] = useState([])
+  const [value] = React.useState([])
   const options = [
     { label: 'Grapes 🍇', value: 'grapes' },
     { label: 'Mango 🥭', value: 'mango' },

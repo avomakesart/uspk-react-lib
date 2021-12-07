@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { SlideOver } from '../src'
 import mdx from './slide-over.mdx'
 import { Button } from '../../buttons/src'
@@ -14,7 +14,7 @@ export default {
 }
 
 export const Default = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
 
   const handleOpenModal = () => setIsOpen(prev => !prev)
   const handleCloseModal = () => setIsOpen(false)
@@ -33,7 +33,7 @@ export const Default = () => {
 }
 
 export const NoOverlay = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
 
   const handleOpenModal = () => setIsOpen(prev => !prev)
   const handleCloseModal = () => setIsOpen(false)
@@ -52,7 +52,7 @@ export const NoOverlay = () => {
 }
 
 export const RightAlign = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = React.useState(false)
 
   const handleOpenModal = () => setIsOpen(prev => !prev)
   const handleCloseModal = () => setIsOpen(false)

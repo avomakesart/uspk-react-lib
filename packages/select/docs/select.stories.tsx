@@ -1,5 +1,6 @@
-import React, {ChangeEvent, useState} from 'react'
-import {SelectInput} from '../src'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as React from 'react'
+import { SelectInput } from '../src'
 import mdx from './select.mdx'
 
 export default {
@@ -14,11 +15,11 @@ export default {
 }
 
 export const Default = () => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   const inputData = ['México', 'USA', 'UK']
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value)
   }
 
@@ -36,11 +37,11 @@ export const Default = () => {
 }
 
 export const WithValidationError = () => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   const inputData = ['México', 'USA', 'UK']
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value)
   }
 
@@ -60,11 +61,11 @@ export const WithValidationError = () => {
 }
 
 export const DisabledSelect = () => {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   const inputData = ['México', 'USA', 'UK']
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setValue(e.target.value)
   }
 
@@ -83,15 +84,15 @@ export const DisabledSelect = () => {
 }
 
 export const MultipleSelection = () => {
-  const [selectedValue, setSelectedValue] = useState([])
+  const [selectedValue, setSelectedValue] = React.useState([])
 
   const inputData = ['México', 'USA', 'UK']
 
   const handleSelect = (selectedValues: any) => {
     const values = []
     for (let i = 0; i < selectedValues.length; i++) {
-      console.log(selectedValues[i].value);
-      
+      console.log(selectedValues[i].value)
+
       values.push(selectedValues[i].value)
     }
     setSelectedValue(selectedValue)
@@ -101,17 +102,17 @@ export const MultipleSelection = () => {
 
   return (
     <>
-    <SelectInput
-      label="Where do you live?"
-      data={inputData}
-      handleChange={(e) => handleSelect(e.target.selectedOptions)}
-      selectedValue={selectedValue}
-      name="selectedValue"
-      defaultValue="Choose your country"
-      multiple
-      required
-    />
-    {JSON.stringify(selectedValue, null, 4)}
+      <SelectInput
+        label="Where do you live?"
+        data={inputData}
+        handleChange={e => handleSelect(e.target.selectedOptions)}
+        selectedValue={selectedValue}
+        name="selectedValue"
+        defaultValue="Choose your country"
+        multiple
+        required
+      />
+      {JSON.stringify(selectedValue, null, 4)}
     </>
   )
 }

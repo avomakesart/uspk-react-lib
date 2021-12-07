@@ -1,5 +1,5 @@
 import cls from 'classnames'
-import React from 'react'
+import * as React from 'react'
 import { ErrorIcon, InfoIcon, SuccessIcon, WarnIcon } from './assets/icons'
 import { AlertProps } from './types'
 import './alert.css'

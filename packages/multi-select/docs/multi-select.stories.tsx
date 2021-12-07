@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { MultiSelect } from '../src'
 import mdx from './multi-select.mdx'
 
@@ -14,7 +14,7 @@ export default {
 }
 
 export const Example = () => {
-  const [selected, setSelected] = useState([])
+  const [selected, setSelected] = React.useState([])
   const options = [
     { label: 'Grapes 🍇', value: 'grapes' },
     { label: 'Mango 🥭', value: 'mango' },

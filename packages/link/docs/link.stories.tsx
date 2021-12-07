@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link } from '../src'
 // import { DxUiIcon } from '../../'
 import mdx from './link.mdx'

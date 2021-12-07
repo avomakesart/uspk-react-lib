@@ -1,11 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import './index.css'
 
-interface WarnIconProps {
-
-}
-
-export const WarnIcon: React.FC<WarnIconProps> = ({}) => {
+export const WarnIcon = () => {
   return (
     <svg
       className="warn-icon"

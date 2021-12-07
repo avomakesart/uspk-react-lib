@@ -1,9 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import './index.css'
 
-interface SuccessIconProps {}
-
-export const SuccessIcon: React.FC<SuccessIconProps> = ({}) => {
+export const SuccessIcon = () => {
   return (
     <svg
       className="success-icon"

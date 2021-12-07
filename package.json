@@ -17,11 +17,11 @@
     "start": "webpack serve --config webpack.dev.config.ts",
     "build": "webpack --config webpack.prod.config.ts",
     "build-lib": "rollup -c",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "lint": "eslint packages",
     "prettier:fix": "prettier --write",
     "prettier:check": "prettier --check",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=93109a8d34e4"
   },
   "lint-staged": {
@@ -88,6 +88,7 @@
     "lodash": "^4.17.21",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
+    "prettier": "^2.5.1",
     "rollup": "^2.59.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^4.0.1",

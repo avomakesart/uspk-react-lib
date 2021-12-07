@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react'
-import { Typography } from '../../../../typography/src'
+import * as React from 'react'
 import { ErrorIcon, InfoIcon, SuccessIcon, WarnIcon } from '../../assets/icons'
 import '../../toast.css'
 import { IToastHookProps } from '../../types'
@@ -17,6 +16,7 @@ export const useToast = ({
   isOpen = false,
 }: IToastHookProps) => {
   const toastRef = React.useRef<any>(null)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isShown, setIsShown] = React.useState(isOpen)
   // const toastRef = useRef<any>(null)
 

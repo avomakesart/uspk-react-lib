@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { HTMLAttributes } from 'react'
+import * as React from 'react'
 import clsx from 'classnames'
 import './checkbox-group.css'
 import { ErrorIcon } from '../assets/icons/error-icon'
@@ -21,7 +21,7 @@ type CheckboxGroupProps = {
   options: any[]
   children: (Checkbox: React.FC<ICheckboxProps>) => JSX.Element
   onChange: (newValue: any[]) => any
-} & HTMLAttributes<HTMLFieldSetElement>
+} & React.HTMLAttributes<HTMLFieldSetElement>
 
 const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
   checkboxLabelClassName,
@@ -71,15 +71,12 @@ const CheckboxGroup: React.FunctionComponent<CheckboxGroupProps> = ({
     }
   }
 
-  const CheckboxTwo: React.FC<ICheckboxProps> = (checkboxProps) => {
+  const CheckboxTwo: React.FC<ICheckboxProps> = checkboxProps => {
     const { label, value: cbValue, disabled, ...rest } = checkboxProps
 
-    const checked = checkedValues
-      ? checkedValues.indexOf(cbValue) >= 0
-      : false
+    const checked = checkedValues ? checkedValues.indexOf(cbValue) >= 0 : false
 
-      console.log(checked);
-      
+    console.log(checked)
 
     const checkProps = {
       ...checkboxProps,

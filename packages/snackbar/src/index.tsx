@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react'
+import * as React from 'react'
 import './snackbar.css'
 
 interface IToastProps {
@@ -15,15 +15,15 @@ export const Toast: React.FC<IToastProps> = ({
   autoDelete,
   dismissTime,
 }) => {
-  const [list, setList] = useState(toastList)
+  const [list, setList] = React.useState(toastList)
 
-  useEffect(() => {
+  React.useEffect(() => {
     setList([...toastList])
 
     // eslint-disable-next-line
   }, [toastList])
 
-  useEffect(() => {
+  React.useEffect(() => {
     const interval = setInterval(() => {
       if (autoDelete && toastList.length && list.length) {
         deleteToast(toastList[0].id)

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { TextInput } from '../src'
 import { SearchIcon } from '../src/assets/icons/search-icon/index'
 import mdx from './text-input.mdx'
@@ -15,7 +15,7 @@ export default {
 }
 
 export const DefaultTextInput = () => {
-  const [inputField, setInputField] = useState('I am doing great')
+  const [inputField, setInputField] = React.useState('I am doing great')
 
   return (
     <TextInput
@@ -30,7 +30,7 @@ export const DefaultTextInput = () => {
 }
 
 export const NumberInput = () => {
-  const [inputField, setInputField] = useState('25')
+  const [inputField, setInputField] = React.useState('25')
 
   return (
     <TextInput
@@ -45,7 +45,7 @@ export const NumberInput = () => {
 }
 
 export const EmailInput = () => {
-  const [inputField, setInputField] = useState('email@email.com')
+  const [inputField, setInputField] = React.useState('email@email.com')
 
   return (
     <TextInput
@@ -60,7 +60,7 @@ export const EmailInput = () => {
 }
 
 export const PasswordInput = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -75,7 +75,7 @@ export const PasswordInput = () => {
 }
 
 export const WithRequiredMark = () => {
-  const [inputField, setInputField] = useState('John Doe')
+  const [inputField, setInputField] = React.useState('John Doe')
 
   return (
     <TextInput
@@ -91,7 +91,7 @@ export const WithRequiredMark = () => {
 }
 
 export const WithValidationError = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -109,7 +109,7 @@ export const WithValidationError = () => {
 }
 
 export const WithSuccessMessage = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -130,7 +130,7 @@ export const WithSuccessMessage = () => {
 }
 
 export const DisabledTextInput = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -147,7 +147,7 @@ export const DisabledTextInput = () => {
 }
 
 export const WithoutLabel = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -161,7 +161,7 @@ export const WithoutLabel = () => {
 }
 
 export const WithLeftIcon = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -177,7 +177,7 @@ export const WithLeftIcon = () => {
 }
 
 export const WithRightIcon = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -193,7 +193,7 @@ export const WithRightIcon = () => {
 }
 
 export const WithPrefix = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -209,7 +209,7 @@ export const WithPrefix = () => {
 }
 
 export const WithSuffix = () => {
-  const [inputField, setInputField] = useState('')
+  const [inputField, setInputField] = React.useState('')
 
   return (
     <TextInput
@@ -222,21 +222,21 @@ export const WithSuffix = () => {
       suffix="$"
     />
   )
-  }
+}
 
-  export const PasswordVisibility = () => {
-    const [inputField, setInputField] = useState('')
-  
-    return (
-      <TextInput
-        name={inputField}
-        type="password"
-        value={inputField}
-        onChange={e => setInputField(e.target.value)}
-        placeHolder="Your favorite food"
-        showPasswordLabel='Show Password'
-        hidePasswordLabel='Hide Password'
-        label="Type a quantity"
-      />
-    )
+export const PasswordVisibility = () => {
+  const [inputField, setInputField] = React.useState('')
+
+  return (
+    <TextInput
+      name={inputField}
+      type="password"
+      value={inputField}
+      onChange={e => setInputField(e.target.value)}
+      placeHolder="Your favorite food"
+      showPasswordLabel="Show Password"
+      hidePasswordLabel="Hide Password"
+      label="Type a quantity"
+    />
+  )
 }

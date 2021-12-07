@@ -1,8 +1,7 @@
 import * as React from 'react'
 import { Button } from '../src'
-import mdx from './button.mdx'
-import { CheckmarkAlt } from '../src/assets/icons/checkmark-alt'
 import { CheckMark } from '../src/assets/icons/checkmark'
+import mdx from './button.mdx'
 
 export default {
   title: 'Components/Button',
@@ -97,7 +96,6 @@ export const LeftIconButton = () => {
     </Button>
   )
 }
-
 
 export const RightIconButton = () => {
   return (

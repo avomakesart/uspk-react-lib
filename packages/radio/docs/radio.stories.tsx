@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import { RadioButton, Radio } from '../src'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as React from 'react'
+import { Radio, RadioButton } from '../src'
+import mdx from './radio.mdx'
 
 export default {
   title: 'Components/RadioButton',
   component: Radio,
   parameters: {
     tags: ['link', 'dxui', 'react'],
-    // docs: {
-    //   page: mdx,
-    // },
+    docs: {
+      page: mdx,
+    },
   },
 }
 
@@ -25,19 +27,6 @@ export const Default = () => {
         checked={selected === 'pizza'}
         onChange={event => setSelected(event.target.value)}
       />
-      {/* <RadioButton
-        id="RadioButtonLiveEdit"
-        name="liveEdit"
-        value={selectedTwo}
-        label="Field Label"
-        errorText=""
-        helperText=""
-        onChange={(event) => setSelectedTwo(event.target.value)}
-        options={[
-          { label: 'Pizza', value: 'pizza', helperText: 'Pizza hut' },
-          { label: 'Burger', value: 'burger', helperText: 'Burger king' },
-        ]}
-      /> */}
     </>
   )
 }
@@ -52,7 +41,6 @@ export const RadioGroup = () => {
       name="liveEdit"
       value={selectedTwo}
       label="Field Label"
-      // errorText="Hello dude"
       helperText=""
       onChange={event => setSelectedTwo(event.target.value)}
       options={[

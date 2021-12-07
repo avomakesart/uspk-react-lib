@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Arrow } from '../assets/icons/arrow'
 import './accordion-row.css'
 
