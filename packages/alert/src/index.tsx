@@ -1,9 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import cls from 'classnames'
 import * as React from 'react'
-import { ErrorIcon, InfoIcon, SuccessIcon, WarnIcon } from './assets/icons'
-import { AlertProps } from './types'
 import './alert.css'
+import { ErrorIcon, InfoIcon, SuccessIcon, WarnIcon } from './assets/icons'
 import { CloseIcon } from './assets/icons/close-icon'
+import { AlertProps } from './types'
 
 export const Alert: React.FC<AlertProps> = ({
   className,
