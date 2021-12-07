@@ -1,15 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/display-name */
+import cls from 'classnames'
 import * as React from 'react'
 import { ErrorIcon } from '../../alert/src/assets/icons'
-import './input.css'
-import { TextInputWrapper } from './text-input-wrapper'
-import { FormMessageProps, ITextInputProps, withClassName } from './types'
-import cls from 'classnames'
-import { SuccessIcon } from './assets/icons/success-icon/index'
+import { useHover } from '../../custom-hooks/src'
 import { EyeIcon } from './assets/icons/eye-icon'
 import { EyeIconOff } from './assets/icons/eye-icon-off'
-import { useHover } from '../../custom-hooks/src'
+import { SuccessIcon } from './assets/icons/success-icon/index'
+import './input.css'
+import { FormMessageProps, ITextInputProps } from './types'
 
 const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
   (
@@ -57,7 +55,7 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
     },
     ref,
   ) => {
-    const internalRef = React.useRef<HTMLInputElement>()
+    const internalRef = React.useRef<HTMLInputElement | any>()
     const textInputRef = ref || internalRef
     const [inputType, setInputType] = React.useState(type)
     const passLavelhoverRef = React.useRef(null)
@@ -139,7 +137,7 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
     const inputStyle = (() => {
       if (leftIcon) return { paddingLeft: '2.4375rem' }
       else if (prefix) return { paddingLeft: '1.5rem' }
-      return { paddingLeft: '1rem' }
+      return { paddingLeft: '1rem', style }
     })()
 
     const msgId = `message_${id}`
@@ -188,7 +186,11 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
           {leftIcon && (
             <span className="text-input__icon--left">{leftIcon}</span>
           )}
-          {prefix && <span className="text-input__icon--prefix">{prefix}</span>}
+          {prefix && (
+            <span className={cls('text-input__icon--prefix', prefixClassName)}>
+              {prefix}
+            </span>
+          )}
           <input
             autoComplete={autoComplete}
             type={inputType}
@@ -211,34 +213,36 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
             maxLength={maxLength}
             pattern={pattern}
             style={inputStyle}
+            ref={textInputRef}
             readOnly={isReadOnly}
             value={value}
             aria-label={label ? label : 'textField'}
             {...rest}
           />
           {/* {inputType === 'password' && ( */}
-            <button
-              type="button"
-              className={passwordVisibilityToggleClasses}
-              disabled={disabled}
-              onClick={handleShowPassword}
-              ref={passLavelhoverRef}
-            >
-              {!disabled && isPassLabelHover && (
-                <span className={`assistive-text`}>
-                  {passwordIsVisible ? hidePasswordLabel : showPasswordLabel}
-                </span>
-              )}
-              {passwordVisibilityIcon}
-            </button>
-          {/* )} */}
+          <button
+            type="button"
+            className={passwordVisibilityToggleClasses}
+            disabled={disabled}
+            onClick={handleShowPassword}
+            ref={passLavelhoverRef}
+          >
+            {!disabled && isPassLabelHover && (
+              <span className={`assistive-text`}>
+                {passwordIsVisible ? hidePasswordLabel : showPasswordLabel}
+              </span>
+            )}
+            {passwordVisibilityIcon}
+          </button>
           {rightIcon && (
             <span className="text-input__icon--right">{rightIcon}</span>
           )}
-          {suffix && <span className="text-input__icon--suffix">{suffix}</span>}
+          {suffix && (
+            <span className={cls('text-input__icon--suffix', suffixClassName)}>
+              {suffix}
+            </span>
+          )}
         </div>
-        {/* {renderIcon(rightIcon as any, 'right')} */}
-
         <FormMessage
           helperText={helperText}
           errorText={errorText}
