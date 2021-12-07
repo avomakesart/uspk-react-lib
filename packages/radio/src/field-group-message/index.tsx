@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import cls from 'classnames'
 import { ErrorIcon } from '../assets/error-icon'
 import './field-group-message.css'

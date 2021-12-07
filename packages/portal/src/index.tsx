@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 import { usePortalsManager } from './hooks/use-portals-manager'
@@ -20,7 +20,7 @@ export function Portal({
   const uniqueId = useUniqueId('portal')
   const portalId = idPrefix !== '' ? `${idPrefix}-${uniqueId}` : uniqueId
 
-  useEffect(() => {
+  React.useEffect(() => {
     onPortalCreated()
   }, [onPortalCreated])
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Arrow } from '../assets/icons/arrow'
 import './accordion-row.css'
 
@@ -15,9 +15,9 @@ export const AccordionRow: React.FC<IAccordionRowProps> = ({
 
   const handleExpandRow = () => setIsExpanded(prev => !prev)
 
-  console.log('====================================');
-  console.log(isExpanded);
-  console.log('====================================');
+  console.log('====================================')
+  console.log(isExpanded)
+  console.log('====================================')
 
   return (
     <li className="accordion-wrapper__list">

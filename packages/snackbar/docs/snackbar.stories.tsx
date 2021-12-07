@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { Button } from '../../buttons/src'
-import { useSnackBars } from '../src/hooks/use-snackbars/index'
-import { SnackBarProvider } from '../src/snack-bar-provider'
-import { Toast } from '../src/index'
 import { CheckMark } from '../../buttons/src/assets/icons/checkmark'
+import { Toast } from '../src/index'
 
 export default {
   title: 'Components/Snackbar',
@@ -16,8 +14,8 @@ export default {
 }
 
 export const Default = () => {
-  const [showSnack, setshowSnack] = useState(false)
-  const [list, setList] = React.useState([
+  const [showSnack, setshowSnack] = React.useState(false)
+  const [list] = React.useState([
     {
       id: 1,
       title: 'Success',

@@ -52,8 +52,7 @@ export const Link = React.forwardRef<LinkProps, any>((props, ref) => {
     ? 'lowercase'
     : 'none'
 
-    console.log(fontTransform);
-    
+  console.log(fontTransform)
 
   const linkStyle = {
     textTransform: fontTransform,

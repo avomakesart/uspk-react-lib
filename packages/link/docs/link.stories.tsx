@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Link } from '../src'
 // import { DxUiIcon } from '../../'
 import mdx from './link.mdx'
@@ -36,11 +36,10 @@ export const SecondaryWithIcon = () => (
 )
 
 export const UppercaseLink = () => (
-    <Link href="/" upperCase leftIcon={<CheckMark width="1.5rem" />}>
-      Primary Icon Link
-    </Link>
-  )
-  
+  <Link href="/" upperCase leftIcon={<CheckMark width="1.5rem" />}>
+    Primary Icon Link
+  </Link>
+)
 
 export const Inverse = () => (
   <div

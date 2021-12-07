@@ -1,11 +1,13 @@
-import React from 'react'
+import * as React from 'react'
 import './index.css'
 
 interface InfoIconProps {
   color?: string
 }
 
-export const InfoIcon: React.FC<InfoIconProps> = ({ color = 'currentColor' }) => {
+export const InfoIcon: React.FC<InfoIconProps> = ({
+  color = 'currentColor',
+}) => {
   return (
     <svg
       className="info-icon"

@@ -2,28 +2,28 @@
 /*
  * copied from https://github.com/imbhargav5/rooks/blob/master/packages/shared/useKeyRef.ts
  */
-import * as React from "react";
+import * as React from 'react'
 
 interface Options {
   /**
    * Condition which if true, will enable the event listeners
    */
-  when?: boolean;
+  when?: boolean
   /**
    * Keyboardevent types to listen for. Valid options are keyDown, keyPress and keyUp
    */
-  eventTypes?: Array<string | number>;
+  eventTypes?: Array<string | number>
   /**
    * target ref on which the events should be listened. If no target is specified,
    * events are listened to on the window
    */
-  target?:React.Ref<HTMLElement> | null;
+  target?: React.Ref<HTMLElement> | null
 }
 
 const defaultOptions = {
   when: true,
-  eventTypes: ["keydown"],
-};
+  eventTypes: ['keydown'],
+}
 
 /**
  * useKey hook
@@ -37,44 +37,44 @@ const defaultOptions = {
 function useKey(
   input: string | number | Array<string | number>,
   callback: (e: KeyboardEvent) => any,
-  opts?: Options
+  opts?: Options,
 ): void {
   const keyList: Array<string | number> = React.useMemo(
     () => (Array.isArray(input) ? input : [input]),
-    [input]
-  );
-  const options = Object.assign({}, defaultOptions, opts);
-  const { when, eventTypes } = options;
-  const callbackRef = React.useRef<(e: KeyboardEvent) => any>(callback);
-  const { target } = options as any;
+    [input],
+  )
+  const options = Object.assign({}, defaultOptions, opts)
+  const { when, eventTypes } = options
+  const callbackRef = React.useRef<(e: KeyboardEvent) => any>(callback)
+  const { target } = options as any
 
   React.useEffect(() => {
-    callbackRef.current = callback;
-  });
+    callbackRef.current = callback
+  })
 
   const handle = React.useCallback(
     (e: KeyboardEvent) => {
-      if (keyList.some((k) => e.key === k || e.code === k)) {
-        callbackRef.current(e);
+      if (keyList.some(k => e.key === k || e.code === k)) {
+        callbackRef.current(e)
       }
     },
-    [keyList]
-  );
+    [keyList],
+  )
 
   React.useEffect((): any => {
-    if (when && typeof window !== "undefined") {
-      const targetNode = target ? target["current"] : window
-      eventTypes.forEach((eventType) => {
-        targetNode && targetNode.addEventListener(eventType, handle);
-      });
+    if (when && typeof window !== 'undefined') {
+      const targetNode = target ? target['current'] : window
+      eventTypes.forEach(eventType => {
+        targetNode && targetNode.addEventListener(eventType, handle)
+      })
       return () => {
-        eventTypes.forEach((eventType) => {
-          targetNode && targetNode.removeEventListener(eventType, handle);
-        });
-      };
+        eventTypes.forEach(eventType => {
+          targetNode && targetNode.removeEventListener(eventType, handle)
+        })
+      }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [when, eventTypes, keyList, target, callback]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [when, eventTypes, keyList, target, callback])
 }
 
-export { useKey };
+export { useKey }

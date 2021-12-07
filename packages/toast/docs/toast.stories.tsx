@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { Button } from '../../buttons/src/index'
 import { useToast } from '../src/hooks/useToast'
 import { Toast } from '../src'

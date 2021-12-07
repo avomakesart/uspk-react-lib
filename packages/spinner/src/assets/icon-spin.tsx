@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { IconSpinProps } from '../types'
 
 export const IconSpin: React.FC<IconSpinProps> = ({
@@ -7,7 +7,7 @@ export const IconSpin: React.FC<IconSpinProps> = ({
   stroke = 'gray',
   style,
   width = '1.5rem',
-  height = '1.5rem'
+  height = '1.5rem',
 }) => {
   return (
     <svg

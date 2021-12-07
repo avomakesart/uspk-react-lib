@@ -1,9 +1,7 @@
-import React from 'react'
+import * as React from 'react'
 import './index.css'
 
-interface InfoIconProps {}
-
-export const InfoIcon: React.FC<InfoIconProps> = ({}) => {
+export const InfoIcon = () => {
   return (
     <svg
       className="info-icon"

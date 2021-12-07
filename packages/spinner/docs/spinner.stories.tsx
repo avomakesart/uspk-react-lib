@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { Spinner } from '../src'
 import mdx from './spinner.mdx'
 
@@ -13,5 +13,7 @@ export default {
 }
 
 export const Default = () => {
-  return <Spinner color="gray" speed="1s" emptyColor="#e2e2e2" label='Hello world' />
+  return (
+    <Spinner color="gray" speed="1s" emptyColor="#e2e2e2" label="Hello world" />
+  )
 }

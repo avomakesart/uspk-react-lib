@@ -21,8 +21,6 @@ const Card: React.FC<ICardProps> & ICardComposition = ({
   children,
   hasMedia,
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [media] = React.useState(hasMedia)
   return (
     <CardContext.Provider value={{ hasMedia, children }}>
       <div className="card-container">{children}</div>

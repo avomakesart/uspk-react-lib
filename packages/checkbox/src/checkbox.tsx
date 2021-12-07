@@ -19,42 +19,6 @@ type ValueProps = {
   defaultChecked?: boolean
 }
 
-const renderLabel = (
-  text: React.ReactNode,
-  id: string,
-  labelIcon: React.ReactNode,
-  error?: boolean,
-  helperText?: React.ReactNode,
-  // onChange?: any,
-  checked?: boolean,
-) => {
-  const labelIconElm = labelIcon && (
-    <span className="checkbox__label">{labelIcon}</span>
-  )
-
-  const helperTextElm = !error && helperText && (
-    <p className="checkbox__helper-text">{helperText}</p>
-  )
-
-  const cls = clsx(
-    'check-icon-container',
-    { ['check-icon-container-checked']: checked },
-    { ['field--error']: error },
-  )
-  console.log(checked)
-
-  return (
-    <label className="checkbox__label" htmlFor={id}>
-      <span className={cls}>
-        {checked && <CheckMark className="checkbox__check-icon" />}
-      </span>
-      {text}
-      {labelIconElm}
-      {helperTextElm}
-    </label>
-  )
-}
-
 const inferValue = (label: React.ReactNode | string) => {
   if (typeof label === 'string') {
     return label
@@ -129,6 +93,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
           name={name}
           value={value}
           id={checkboxId}
+          required={required}
           ref={ref}
           checked={checked}
           disabled={disabled}

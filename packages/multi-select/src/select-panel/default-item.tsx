@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from "react";
+import * as React from 'react'
 
-import { Option } from "../../lib/interfaces";
+import { Option } from '../../lib/interfaces'
 
 interface IDefaultItemRendererProps {
-  checked: boolean;
-  option: Option;
-  disabled?: boolean;
-  onClick: any;
+  checked: boolean
+  option: Option
+  disabled?: boolean
+  onClick: any
 }
 
 const DefaultItemRenderer = ({
@@ -16,7 +16,7 @@ const DefaultItemRenderer = ({
   onClick,
   disabled,
 }: IDefaultItemRendererProps) => (
-  <div className={`item-renderer ${disabled && "disabled"}`}>
+  <div className={`item-renderer ${disabled && 'disabled'}`}>
     <input
       type="checkbox"
       onChange={onClick}
@@ -26,6 +26,6 @@ const DefaultItemRenderer = ({
     />
     <span>{option.label}</span>
   </div>
-);
+)
 
-export default DefaultItemRenderer;
+export default DefaultItemRenderer

@@ -1,8 +1,8 @@
-import React, { useCallback, useRef, useState } from 'react';
-import { useOnClickOutside, useOnEscapeKeyDown } from '../../custom-hooks/src';
-import { OutlineX } from './assets/icons/outline-x';
-import './slide-over.css';
-import { SlideOverProps } from './types';
+import * as React from 'react'
+import { useOnClickOutside, useOnEscapeKeyDown } from '../../custom-hooks/src'
+import { OutlineX } from './assets/icons/outline-x'
+import './slide-over.css'
+import { SlideOverProps } from './types'
 
 export const SlideOver: React.FC<SlideOverProps> = ({
   children,
@@ -11,15 +11,15 @@ export const SlideOver: React.FC<SlideOverProps> = ({
   align,
   noOverlay,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = React.useState(false)
   const isControlled = typeof propsIsOpen === 'boolean'
   const open = isControlled ? propsIsOpen : isModalOpen
 
-  const modalContent = useRef(null)
+  const modalContent = React.useRef(null)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const clickableOverlayRef = useRef<any>()
+  const clickableOverlayRef = React.useRef<any>()
 
-  const handleClose = useCallback(() => {
+  const handleClose = React.useCallback(() => {
     if (!isControlled) {
       setIsModalOpen(false)
     } else {

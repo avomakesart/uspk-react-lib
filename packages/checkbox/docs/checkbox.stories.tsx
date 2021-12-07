@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from 'react'
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import * as React from 'react'
 import { Checkbox, CheckboxGroup } from '../src/index'
 import mdx from './checkbox.mdx'
 
@@ -12,11 +13,11 @@ export default {
   },
 }
 
-const Example = args => {
-  const [isChecked, setIsChecked] = useState<any>(false)
-  const [checkVal, setCheckVal] = useState('')
+export const Default = () => {
+  const [isChecked, setIsChecked] = React.useState<any>(false)
+  const [checkVal, setCheckVal] = React.useState('')
 
-  const handleCheck = (ev: ChangeEvent<HTMLInputElement>) => {
+  const handleCheck = (ev: React.ChangeEvent<HTMLInputElement>) => {
     setIsChecked(!isChecked)
     setCheckVal(ev.target.value)
   }
@@ -33,24 +34,12 @@ const Example = args => {
       value="pizza"
       checked={isChecked}
       onChange={handleCheck}
-      // {...args}
     />
   )
 }
 
-export const Default = Example.bind({})
-
-Default.args = {
-  checked: true,
-}
-
-const options = [
-  { label: 'Pizza', value: 'pizza' },
-  { label: 'Burger', value: 'burger' },
-]
-
 export const CheckboxGroupWithHelperTextGroupLevel = () => {
-  const [values, setValues] = useState<any>([])
+  const [values, setValues] = React.useState<any>([])
 
   console.log(values)
 
@@ -73,7 +62,7 @@ export const CheckboxGroupWithHelperTextGroupLevel = () => {
 }
 
 export const CheckboxGroupWithHelperTextInputLevel = () => {
-  const [values, setValues] = useState<any>([])
+  const [values, setValues] = React.useState<any>([])
 
   console.log(values)
 
@@ -95,7 +84,7 @@ export const CheckboxGroupWithHelperTextInputLevel = () => {
 }
 
 export const CheckboxGroupWithErrorState = () => {
-  const [values, setValues] = useState<any>([])
+  const [values, setValues] = React.useState<any>([])
 
   console.log(values)
 

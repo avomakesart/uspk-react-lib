@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-
 export const useCurrentWidth: React.FC = ({}) => {
   /* Capture the dimensions of the button before the loading happens
         so it doesn’t change size.
@@ -16,7 +15,7 @@ export const useCurrentWidth: React.FC = ({}) => {
     if (ref.current && ref.current.getBoundingClientRect().height) {
       setHeight(ref.current.getBoundingClientRect().height)
     }
-  }, [children])
+  }, [])
 
   return { width, height }
 }

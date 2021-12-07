@@ -1,6 +1,6 @@
 {
   "name": "@uspk/react-lib",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Uspk react component library",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -17,9 +17,18 @@
     "start": "webpack serve --config webpack.dev.config.ts",
     "build": "webpack --config webpack.prod.config.ts",
     "build-lib": "rollup -c",
+    "lint": "eslint packages",
+    "prettier:fix": "prettier --write 'packages/**/*.tsx'",
+    "prettier:check": "prettier --check 'packages/**/*.tsx'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=93109a8d34e4"
+  },
+  "lint-staged": {
+    "packages/**/*.{ts,tsx}": [
+      "yarn prettier:fix 'packages/**/*.tsx'",
+      "yarn lint"
+    ]
   },
   "repository": {
     "type": "git",
@@ -30,7 +39,6 @@
     "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "@emotion/core": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
@@ -74,9 +82,12 @@
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "lodash": "^4.17.21",
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
+    "prettier": "^2.5.1",
     "rollup": "^2.59.0",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-dts": "^4.0.1",

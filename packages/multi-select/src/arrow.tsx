@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from "react";
+import * as React from 'react'
 
 export const Arrow = ({ expanded }: any) => (
   <svg
@@ -10,6 +10,6 @@ export const Arrow = ({ expanded }: any) => (
     strokeWidth="2"
     className="dropdown-heading-dropdown-arrow"
   >
-    <path d={expanded ? "M18 15 12 9 6 15" : "M6 9L12 15 18 9"} />
+    <path d={expanded ? 'M18 15 12 9 6 15' : 'M6 9L12 15 18 9'} />
   </svg>
-);
+)

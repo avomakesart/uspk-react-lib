@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactElement } from 'react'
+import * as React from 'react'
 import cls from 'classnames'
 import './field-group-label.css'
 
 interface Props {
   className?: string
-  icon?: ReactElement<any>
+  icon?: React.ReactElement<any>
   as?: keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>
 }
 

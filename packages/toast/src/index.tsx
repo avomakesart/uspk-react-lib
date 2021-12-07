@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { IToastProps } from './types'
 import { useToast } from './hooks/useToast/index'
 
@@ -20,7 +20,7 @@ export const Toast: React.FC<IToastProps> = ({
 
   React.useEffect(() => {
     openToast()
-  }, [])
+  }, [openToast])
 
   return <>{isOpen && <ToastComponent />}</>
 }

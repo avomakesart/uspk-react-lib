@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import * as React from 'react'
 import { Modal } from '../src'
 import mdx from './modal.mdx'
 import { Button } from '../../buttons/src'
@@ -14,7 +14,7 @@ export default {
 }
 
 export const Default = () => {
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = React.useState(false)
 
   const handleOpenModal = () => setModalOpen(prev => !prev)
   const handleCloseModal = () => setModalOpen(false)
@@ -33,7 +33,7 @@ export const Default = () => {
 }
 
 export const NoOverlay = () => {
-  const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen, setModalOpen] = React.useState(false)
 
   const handleOpenModal = () => setModalOpen(prev => !prev)
   const handleCloseModal = () => setModalOpen(false)

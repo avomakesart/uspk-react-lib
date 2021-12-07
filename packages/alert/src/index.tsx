@@ -1,5 +1,5 @@
 import cls from 'classnames'
-import React from 'react'
+import * as React from 'react'
 import { ErrorIcon, InfoIcon, SuccessIcon, WarnIcon } from './assets/icons'
 import { AlertProps } from './types'
 import './alert.css'
@@ -40,7 +40,12 @@ export const Alert: React.FC<AlertProps> = ({
 
     closeBtnEl = closeButton && (
       <span>
-        <button type="button" className={closeButtonClass} style={{ fontSize: '1.5rem' }} {...otherProps}>
+        <button
+          type="button"
+          className={closeButtonClass}
+          style={{ fontSize: '1.5rem' }}
+          {...otherProps}
+        >
           <CloseIcon />
           <span className="alert--icon_label">{closeButtonLabel}</span>
         </button>

@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { IconProps } from '../../../types'
 
 export const OutlineX: React.FC<IconProps> = ({ width = '1.5rem' }) => {

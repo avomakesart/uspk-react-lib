@@ -6,7 +6,7 @@ export type LinkProps = {
   className?: string
   children?: React.ReactNode | React.ReactNode[]
   leftIcon?: React.ReactElement
-  upperCase?: boolean,
+  upperCase?: boolean
   lowerCase?: boolean
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   as?: any
