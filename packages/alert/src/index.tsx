@@ -40,7 +40,12 @@ export const Alert: React.FC<AlertProps> = ({
 
     closeBtnEl = closeButton && (
       <span>
-        <button type="button" className={closeButtonClass} style={{ fontSize: '1.5rem' }} {...otherProps}>
+        <button
+          type="button"
+          className={closeButtonClass}
+          style={{ fontSize: '1.5rem' }}
+          {...otherProps}
+        >
           <CloseIcon />
           <span className="alert--icon_label">{closeButtonLabel}</span>
         </button>

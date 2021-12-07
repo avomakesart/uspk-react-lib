@@ -15,9 +15,9 @@ export const AccordionRow: React.FC<IAccordionRowProps> = ({
 
   const handleExpandRow = () => setIsExpanded(prev => !prev)
 
-  console.log('====================================');
-  console.log(isExpanded);
-  console.log('====================================');
+  console.log('====================================')
+  console.log(isExpanded)
+  console.log('====================================')
 
   return (
     <li className="accordion-wrapper__list">

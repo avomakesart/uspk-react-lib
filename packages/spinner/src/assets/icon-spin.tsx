@@ -7,7 +7,7 @@ export const IconSpin: React.FC<IconSpinProps> = ({
   stroke = 'gray',
   style,
   width = '1.5rem',
-  height = '1.5rem'
+  height = '1.5rem',
 }) => {
   return (
     <svg

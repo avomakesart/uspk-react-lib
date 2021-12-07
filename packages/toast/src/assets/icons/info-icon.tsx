@@ -5,7 +5,9 @@ interface InfoIconProps {
   color?: string
 }
 
-export const InfoIcon: React.FC<InfoIconProps> = ({ color = 'currentColor' }) => {
+export const InfoIcon: React.FC<InfoIconProps> = ({
+  color = 'currentColor',
+}) => {
   return (
     <svg
       className="info-icon"

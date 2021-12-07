@@ -36,11 +36,10 @@ export const SecondaryWithIcon = () => (
 )
 
 export const UppercaseLink = () => (
-    <Link href="/" upperCase leftIcon={<CheckMark width="1.5rem" />}>
-      Primary Icon Link
-    </Link>
-  )
-  
+  <Link href="/" upperCase leftIcon={<CheckMark width="1.5rem" />}>
+    Primary Icon Link
+  </Link>
+)
 
 export const Inverse = () => (
   <div

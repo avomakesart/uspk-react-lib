@@ -2,22 +2,22 @@
 /**
  * This component represents an individual item in the multi-select drop-down
  */
-import * as React from "react";
+import * as React from 'react'
 
-import { useKey } from "../../hooks/use-key";
-import { KEY } from "../../lib/constants";
-import { Option } from "../../lib/interfaces";
-import DefaultItemRenderer from "./default-item";
+import { useKey } from '../../hooks/use-key'
+import { KEY } from '../../lib/constants'
+import { Option } from '../../lib/interfaces'
+import DefaultItemRenderer from './default-item'
 
 interface ISelectItemProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  itemRenderer: any;
-  option: Option;
-  checked?: boolean;
-  tabIndex?: number;
-  disabled?: boolean;
-  onSelectionChanged: (checked: boolean) => void;
-  onClick: any;
+  itemRenderer: any
+  option: Option
+  checked?: boolean
+  tabIndex?: number
+  disabled?: boolean
+  onSelectionChanged: (checked: boolean) => void
+  onClick: any
 }
 
 const SelectItem = ({
@@ -30,29 +30,29 @@ const SelectItem = ({
   onClick,
 }: ISelectItemProps) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const itemRef: any = React.useRef();
+  const itemRef: any = React.useRef()
 
   const onOptionCheck = (e: any) => {
-    toggleChecked();
-    e.preventDefault();
-  };
+    toggleChecked()
+    e.preventDefault()
+  }
 
   const toggleChecked = () => {
     if (!disabled) {
-      onSelectionChanged(!checked);
+      onSelectionChanged(!checked)
     }
-  };
+  }
 
   const handleClick = (e: any) => {
-    toggleChecked();
-    onClick(e);
-  };
+    toggleChecked()
+    onClick(e)
+  }
 
-  useKey([KEY.ENTER, KEY.SPACE], onOptionCheck, { target: itemRef });
+  useKey([KEY.ENTER, KEY.SPACE], onOptionCheck, { target: itemRef })
 
   return (
     <label
-      className={`select-item ${checked && "selected"}`}
+      className={`select-item ${checked && 'selected'}`}
       role="option"
       aria-selected={checked}
       tabIndex={tabIndex}
@@ -65,7 +65,7 @@ const SelectItem = ({
         disabled={disabled}
       />
     </label>
-  );
-};
+  )
+}
 
-export default SelectItem;
+export default SelectItem

@@ -29,8 +29,8 @@ export const ButtonIcon: React.FC<IButtonIconProps> = ({
     display: 'inline-flex',
     alignSelf: 'center',
     flexShrink: 0,
-    marginLeft:  marginStart,
-    marginRight: marginEnd
+    marginLeft: marginStart,
+    marginRight: marginEnd,
   }
 
   return (

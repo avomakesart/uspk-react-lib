@@ -90,10 +90,14 @@ const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
       labelClassName,
     )
 
-    const radioCheckClasses = cls('radio__check-icon-container', {
-      ['radio__label--with-svg-icon']: checked,
-      ['radio__shadow']: checked,
-    }, checkClassName)
+    const radioCheckClasses = cls(
+      'radio__check-icon-container',
+      {
+        ['radio__label--with-svg-icon']: checked,
+        ['radio__shadow']: checked,
+      },
+      checkClassName,
+    )
 
     return (
       <div className={cls('radio', className)}>

@@ -1,9 +1,9 @@
 import * as React from 'react'
 
-import {useMultiSelect} from '../hooks/use-multi-select'
+import { useMultiSelect } from '../hooks/use-multi-select'
 
 export const DropdownHeader = () => {
-  const {t, value, options, valueRenderer} = useMultiSelect()
+  const { t, value, options, valueRenderer } = useMultiSelect()
 
   const noneSelected = value.length === 0
   const allSelected = value.length === options.length
