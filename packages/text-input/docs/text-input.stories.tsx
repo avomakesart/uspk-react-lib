@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { SuccessIcon } from '../../alert/src/assets/icons'
 import { TextInput } from '../src'
-import mdx from './text-input.mdx'
 import { SearchIcon } from '../src/assets/icons/search-icon/index'
+import mdx from './text-input.mdx'
 
 export default {
   title: 'Components/TextInput',
   parameters: {
     tags: ['text-field', 'uspk', 'react'],
+    layout: 'centered',
     docs: {
       page: mdx,
     },
@@ -224,7 +224,7 @@ export const WithSuffix = () => {
   )
   }
 
-  export const ControlledPassword = () => {
+  export const PasswordVisibility = () => {
     const [inputField, setInputField] = useState('')
   
     return (

@@ -21,17 +21,9 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
       error,
       errorText,
       helperText,
-      type,
       value,
-      onChange,
-      onClick,
       leftIcon,
       rightIcon,
-      onBlur,
-      onFocus,
-      onKeyDown,
-      onKeyUp,
-      onPaste,
       defaultValue,
       className,
       min,
@@ -39,6 +31,7 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
       minLength,
       maxLength,
       pattern,
+      type,
       isReadOnly,
       labelStyle,
       hidePasswordLabel = 'Hide password',
@@ -58,6 +51,7 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
     const internalRef = React.useRef<HTMLInputElement | any>()
     const textInputRef = ref || internalRef
     const [inputType, setInputType] = React.useState(type)
+    const [isPasswordShown, setIsPasswordShown] = React.useState(false)
     const passLavelhoverRef = React.useRef(null)
     const isPassLabelHover = useHover(passLavelhoverRef)
 
@@ -71,8 +65,9 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
         const text = errorText ? (
           <p className="input-text-error">{errorText}</p>
         ) : (
-          <p className="input-text-error">{successText}</p>
+          successText
         )
+
         const isSuccessText = !errorText
         const processText = Array.isArray(text) ? (
           <ul
@@ -110,13 +105,13 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
 
       if (helperText) {
         const processText = Array.isArray(helperText) ? (
-          <ul className="ppvx_text-input__helper-text" id={messageId}>
+          <ul className="text-input__helper-text" id={messageId}>
             {(helperText as any[]).map((msg, index) => (
               <li key={`msg${messageId}-${index}`}>{msg}</li>
             ))}
           </ul>
         ) : (
-          <div className="ppvx_text-input__helper-text" id={messageId}>
+          <div className="text-input__helper-text" id={messageId}>
             {helperText}
           </div>
         )
@@ -125,14 +120,11 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
       return null
     }
 
-    const inputClassName = [
+    const inputClassName = cls(
       'input',
-      className && className,
-      error ? 'input-error' : '',
-      disabled ? 'input-disabled' : '',
-    ]
-      .join(' ')
-      .trim()
+      { ['input-error']: error, ['input-disabled']: disabled },
+      className,
+    )
 
     const inputStyle = (() => {
       if (leftIcon) return { paddingLeft: '2.4375rem' }
@@ -142,36 +134,14 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
 
     const msgId = `message_${id}`
 
-    // const renderIcon = (
-    //   icon: React.ReactElement<any> & withClassName,
-    //   side: 'left' | 'right',
-    // ) =>
-    //   icon
-    //     ? React.cloneElement(icon, {
-    //         className: cls(icon.props.className, `text-input__icon--${side}`),
-    //       })
-    //     : null
-    const passwordVisibilityToggleClasses = cls(
-      `text-input--password__visibility__toggle`,
-      // `btn-pass`,
-      // `btn--icon-only`,
-      // `tooltip__trigger`,
-      // `tooltip--a11y`,
-      {
-        // [`btn--disabled`]: disabled,
-        // [`tooltip--${tooltipPosition}`]: tooltipPosition,
-        // [`tooltip--align-${tooltipAlignment}`]: tooltipAlignment,
-      },
-    )
-
-    const passwordIsVisible = inputType === 'text'
-    const passwordVisibilityIcon = passwordIsVisible ? (
+    const passwordVisibilityIcon = isPasswordShown ? (
       <EyeIconOff />
     ) : (
       <EyeIcon />
     )
 
     const handleShowPassword = (event: any) => {
+      setIsPasswordShown(!isPasswordShown)
       setInputType(inputType === 'password' ? 'text' : 'password')
       onPasswordShown && onPasswordShown(event)
     }
@@ -193,19 +163,12 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
           )}
           <input
             autoComplete={autoComplete}
-            type={inputType}
             className={inputClassName}
             required={required}
             id={id}
             placeholder={placeHolder}
-            onClick={onClick}
-            onChange={onChange}
-            onFocus={onFocus}
-            onKeyDown={onKeyDown}
-            onKeyUp={onKeyUp}
-            onBlur={onBlur}
-            onPaste={onPaste}
             defaultValue={defaultValue}
+            type={inputType}
             min={min}
             max={max}
             disabled={disabled}
@@ -219,21 +182,26 @@ const TextInput = React.forwardRef<HTMLInputElement, ITextInputProps>(
             aria-label={label ? label : 'textField'}
             {...rest}
           />
-          {/* {inputType === 'password' && ( */}
-          <button
-            type="button"
-            className={passwordVisibilityToggleClasses}
-            disabled={disabled}
-            onClick={handleShowPassword}
-            ref={passLavelhoverRef}
-          >
-            {!disabled && isPassLabelHover && (
-              <span className={`assistive-text`}>
-                {passwordIsVisible ? hidePasswordLabel : showPasswordLabel}
-              </span>
-            )}
-            {passwordVisibilityIcon}
-          </button>
+
+          {type === 'password' && (
+            <button
+              type="button"
+              className="text-input--password__visibility__toggle"
+              disabled={disabled}
+              onClick={handleShowPassword}
+              ref={passLavelhoverRef}
+            >
+              {!disabled && isPassLabelHover && (
+                <>
+                  <span className="carret" />
+                  <span className="assistive-text">
+                    {isPasswordShown ? hidePasswordLabel : showPasswordLabel}
+                  </span>
+                </>
+              )}
+              {passwordVisibilityIcon}
+            </button>
+          )}
           {rightIcon && (
             <span className="text-input__icon--right">{rightIcon}</span>
           )}
